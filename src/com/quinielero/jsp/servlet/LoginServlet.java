@@ -7,8 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import com.quinielero.profile.ProfileUser;
 
+=======
+>>>>>>> b9b3c3d1b318878b32aa6ead7a48a353889fe9ee
 /**
  * Servlet implementation class LoginServlet
  */
@@ -39,6 +42,7 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String user = request.getParameter("user");
 		String password = request.getParameter("password");
+<<<<<<< HEAD
 		if (user.equals("Geovani") && password.equals("Serrano")) {
 			ProfileUser profileUser = new ProfileUser();
 			profileUser.setFirstName(user);
@@ -58,6 +62,10 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("Error al ingresar");
 			response.sendRedirect("login.html");
 		}
+=======
+		
+		System.out.println("Welcome " + user + " " + password);
+>>>>>>> b9b3c3d1b318878b32aa6ead7a48a353889fe9ee
 	}
 
 }
