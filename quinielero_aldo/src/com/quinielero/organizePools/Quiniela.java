@@ -25,11 +25,21 @@ public class Quiniela {
 	int getMaximum_participants() {
 		return maximum_participants;
 	}
+	
+	void setParticipants(int minimum_participants, int maximum_participants){		
+		if(minimum_participants > maximum_participants){
+			setMaximum_participants(-1);
+			setMinimum_participants(-1);
+		}else if((maximum_participants > 99 || maximum_participants < 2) || (minimum_participants > 99 || minimum_participants < 2)){
+			setMinimum_participants(-1);
+			setMaximum_participants(-1);
+		}else{
+			this.maximum_participants = maximum_participants;
+			this.minimum_participants = minimum_participants;
+		}	
+	}
 
-	void setMaximum_participants(int maximum_participants) {
-		
-		if(maximum_participants > 99 || maximum_participants < 2) this.maximum_participants = -1;
-		if(maximum_participants < getMinimum_participants()) this.minimum_participants = -1;
+	void setMaximum_participants(int maximum_participants) {	
 		this.maximum_participants = maximum_participants;
 	}
 
@@ -37,10 +47,8 @@ public class Quiniela {
 		return minimum_participants;
 	}
 
-	void setMinimum_participants(int minimum_participants) {
-		if(maximum_participants < getMinimum_participants()) this.minimum_participants = -1;	
-		if(minimum_participants > 99 || minimum_participants < 2) this.minimum_participants = -1;
-		this.minimum_participants = minimum_participants;
+	void setMinimum_participants(int minimum_participants) {	
+			this.minimum_participants = minimum_participants;
 	}
 
 	String getStart_date() {

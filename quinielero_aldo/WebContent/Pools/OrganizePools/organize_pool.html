@@ -7,43 +7,50 @@
 	<title>QUINIELERO</title>
 	<link rel="stylesheet" type="text/css" href="SubStyle.css">
 	
-	<script>
-	
+	<script type="text/javascript" lang="JavaScript" > 
 	function valideDatos(){
-		var leage_selection = document.getElementById("select_league_button");
-		var maximum = document.getElementById("minimum_participants");
-		var minimum = document.getElementById("maximum_participants");
-		var price   = document.getElementById("pool_price");
-		var date    = document.getElementById("start_date");
-		var invite  = document.getElementById("invite_people_button");
-		var name    = document.getElementById("pool_name");
+			
+		var league     = document.getElementById("select_league_button");
+		var minimum    = document.getElementById("minimum_participants");
+		var maximum    = document.getElementById("maximum_participants");
+		var price      = document.getElementById("pool_price");
+		var startDate  = "" + document.getElementById("start_date");
+		var invite     = document.getElementById("invite_people_button");
+		var name       = document.getElementById("pool_name");
 		
-		//variables to get current date
+		
+		//current date
 		var today = new Date();
-		var dd = today.getDate();
-		var mm = today.getMonth()+1; //January is 0!
-		var yyyy = today.getFullYear();
-		//ar today_date = dd
+		var dd    = "" + today.getDay();
+		var mm    = "" + today.getMonth()+1; 
+		var yyyy  = "" + today.getFullYear();
 		
-		if(maximum.valueOf() > 99 || maximum.valueOf() < 2 || maximum.valueOf()==null){
+		//extraction from date
+		var day   = "" + startDate.charAt(8) + startDate.charAt(9);   
+		var month = "" + startDate.charAt(5) + startDate.charAt(6);
+		var year  = "" + startDate.charAt(0) + startDate.charAt(1) + startDate.charAt(2) + startDate.charAt(3);
+		
+		
+		if(maximum.value > 99 || maximum.value < 2 || maximum.value==null){
 			alert("Number of participants must be between 2 and 99");
 			return false;
-		} else if(minimum.valueOf() >99 || minimum.valueOf() < 2 || minimum.valueOf()==null){
+		} else if(minimum.value >99 || minimum.value < 2 || minimum.value==null){
 			alert("Number of participants must be between 2 and 99");
 			return false;
-		} else if(minimum.valueOf() > maximum.valueOf()){
+		} else if(minimum.value > maximum.value){
 			alert("Minimum number of participants can't be bigger than maximum");
-			return flase;
-		}else if(price.valueOf() < 5.00 || price.valueOf() == null){
+			return false;
+		}else if(price.value < 5.00 || price.value == null){
 			alert("Minimum price is 5 pesos");
 			return false;
 		}else if(name == null || name == ""){
 			alert("You must give a name to your pool");
 			return false;
-		}else{
-			return true;
-		}
-			
+		}else if(yyyy > year){
+			alert("You can't choose a date that has already passed");
+			return false;
+		}else return true;
+				
 	}
 	</script>
 	
@@ -61,12 +68,11 @@
 	
 	
 	<div class="firstStep">		
-		<form action="../../CreatePool" method="post" onsubmit="return validateDatos();">	
-		
+		<form action="../../CreatePool" method="post" onsubmit="return valideDatos();">	
+													  
 			
 			<h3>Give a name to your pool</h3>
-			<input type="text" name="pool_name" id="pool_name" required> <br> <br>
-			
+			<input type="text" name="pool_name" id="pool_name" required> <br> <br>			
 			
 			<h3>Select the league for you pool</h3>
 			<input type="radio" name="select_league_button" value="uefa" id="select_league_button" required>  UEFA <br>

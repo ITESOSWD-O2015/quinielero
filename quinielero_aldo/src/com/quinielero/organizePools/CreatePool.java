@@ -38,28 +38,33 @@ public class CreatePool extends HttpServlet {
 		String date   = request.getParameter("start_date");
 		
 		
-
-		/*response.getWriter().println("Pool's name: "+ name);
+		response.getWriter().println("Datos eviados por el usuario: ");
+		response.getWriter().println("Pool's name: "+ name);
 		response.getWriter().println("League Selected: " + league);
 		response.getWriter().println("Minimum Participants: " + minimum);
 		response.getWriter().println("Maximum Participants: " + maximum);
 		response.getWriter().println("Pool's price: " + price);
-		response.getWriter().println("Start date: " + date);*/
+		response.getWriter().println("Start date: " + date);
 		
 		
 		Quiniela quiniela = new Quiniela(name);
 		
+		
+		
 		quiniela.setLeague(league);
-		quiniela.setMinimum_participants(minimum);
-		quiniela.setMaximum_participants(maximum);		
+		quiniela.setParticipants(minimum, maximum);
 		quiniela.setPools_price(price);		
 		quiniela.setStart_date(date);
 		
-		/*response.getWriter().println("League Selected: " + quiniela.getLeague());
+		response.getWriter().println();
+		response.getWriter().println();
+		response.getWriter().println("Datos guardados en la quiniela: ");
+		response.getWriter().println("Pool's name: " + quiniela.getName());
+		response.getWriter().println("League Selected: " + quiniela.getLeague());
 		response.getWriter().println("Minimum Participants: " + quiniela.getMinimum_participants());
 		response.getWriter().println("Maximum Participants: " + quiniela.getMaximum_participants());
 		response.getWriter().println("Pool's price: " + quiniela.getPools_price());
-		response.getWriter().println("Start date: " + quiniela.getStart_date());*/
+		response.getWriter().println("Start date: " + quiniela.getStart_date());
 		
 		
 		
