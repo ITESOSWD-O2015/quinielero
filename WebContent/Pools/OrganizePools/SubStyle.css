@@ -1,0 +1,69 @@
+@CHARSET "ISO-8859-1";
+
+body {
+    background:#bf5c71;
+}
+
+ 
+.clearfix:after {
+    display:block;
+    clear:both;
+}
+
+.mainLogo {	
+	
+	display: block;
+	position: static;
+	height: 80px;	
+	bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    margin-top:0px;
+    margin-bottom:20px;
+    margin-right:0px;
+    margin-left:0px;
+    font-size: 150%;
+	background:#5a4b4e;
+    padding: 10px;
+    font-family:'Ek Mukta';
+    color: #919191;
+    text-align: center;
+}
+
+.mainLogo a{
+	text-decoration:none;
+    transition:all linear 0.15s;
+    color:#919191;
+	
+}
+
+
+.currentSelection {		
+	display: block;
+	position: static;
+	height: 40px;	
+	bottom:10px;
+    top:10px;
+    left:0;
+    right:0;
+    margin-top:0px;
+    margin-bottom:20px;
+    margin-right:0px;
+    margin-left:0px;
+	background:#3e3436;
+    padding: 10px;
+    font-family:'Ek Mukta';
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.firstStep {
+	border: 5px solid black;
+}
+
+.secondStep {
+	border: 5px solid black;
+}
+
+
