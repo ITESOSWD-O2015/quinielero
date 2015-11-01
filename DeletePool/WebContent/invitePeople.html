@@ -5,13 +5,27 @@
 <title>Invite People</title>
 <link rel="stylesheet" type="text/css" href="MainStyle.css">
 
+<script type="text/javascript" language= "JavaScript">
+
+	function InviteParticipant() {
+		var participante = document.getElementById("participante");
+		if(participante.value != ""){
+			document.getElementById("demo").innerHTML += participante.value;
+			alert("Participante agregado");
+		}
+		else
+			alert("Introduce el nombre de algun participante");
+	}
+
+</script>
+
 </head>
 
 <body style="background-color:#bf5c71">
 <div class="mainLogo">
 		<h1><a href="index.html">Quinielero</a></h1>	
 	</div>
-
+<form   >
 <table align = "center"> 
 
 <tr>
@@ -19,22 +33,21 @@
 </tr>
 
 <tr>
-	<td><ul>
-  			<li>Jose Franco</li>
-  			<li>Aldo Ruiz</li>
-  			<li>Pol Zepeda</li>
-  			<li>Paloma Martinez</li>
-		</ul> 
+	<td>
+		<p>Jose Franco </p> 
+		<p>Juan Lopez </p> 
+		<p id="demo"></p>
 	</td>
-	<td> <input type="text" name="participant" align = "top"> </td>
+	<td> <input type="text" id = "participante" name="participant" align = "top"> </td>
 </tr>
 
 <tr>
 	<td> <button id="startpool" value = "Start Pool" height:30px;  width:80px" onclick="deletePoolFunction()">Start Pool</button> </td>
-		<td> <button id="invite" value = "Invite" height:30px;  width:80px" onclick="deletePoolFunction()">Invite</button> </td>
+		<td> <button type="button" id="invite" value = "Invite" height:30px;  width:80px" onclick="InviteParticipant()">Invite</button> </td>
 
 </tr>
 </table>
+</form>
 
 
 
