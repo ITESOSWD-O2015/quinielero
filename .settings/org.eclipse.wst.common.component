@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="Quinielero">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
@@ -5,4 +6,15 @@
         <property name="context-root" value="Quinielero"/>
         <property name="java-output-path" value="/Quinielero/build/classes"/>
     </wb-module>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+	<wb-module deploy-name="Quinielero">
+		<wb-resource deploy-path="/" source-path="/WebContent"
+			tag="defaultRootSource" />
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src" />
+		<property name="context-root" value="Quinielero" />
+		<property name="java-output-path" value="/Quinielero/build/classes" />
+	</wb-module>
+>>>>>>> 5cf422aaff7faf9fecbd9273ef12834ed20f7122
 </project-modules>
