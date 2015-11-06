@@ -11,7 +11,7 @@
 	<jsp:include page="../sources/head.jsp" />
 		
 	<div class="currentSelection">
-		<h2> <br> <br> <center> Joining Pools </center> </h2>	
+		<br><br><center><h2>Joining Pools</h2></center> 
 	</div>
 	
 	
