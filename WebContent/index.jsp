@@ -10,18 +10,18 @@
 <body>
 
 	<div id="login_div">
-		<form action="LoginServlet" method="post">
+		<form action="LoginServlet" method="post" onsubmit="return valideDatos();">
 			<table width="100%" cellspacing="15">
 				<tr>
 					<td><h3>Quinielero</h3></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="username" placeholder="Username"
-						class="inputLogin"></td>
+						class="inputLogin" required></td>
 				</tr>
 				<tr>
 					<td><input type="password" name="password"
-						placeholder="Password" class="inputLogin"></td>
+						placeholder="Password" class="inputLogin" required></td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="Log in"></td>
