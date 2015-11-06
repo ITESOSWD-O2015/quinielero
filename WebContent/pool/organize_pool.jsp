@@ -47,11 +47,7 @@
 	</script>
 </head>
 <body>
-	
-	<div class="mainLogo">
-		<h1><a href="../../index.html">Quinielero</a></h1>	
-	</div>
-	
+	<jsp:include page="../sources/head.jsp" />	
 	<div class="currentSelection">
 		<h2>Organize Pools</h2>	
 	</div>
