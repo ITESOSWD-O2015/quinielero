@@ -1,5 +1,5 @@
 <div class="mainLogo">
-		<h1><a href="index.html">Quinielero</a></h1>	
+		<h1><a href="index.jsp">Quinielero</a></h1>	
 	</div>
 	
 
