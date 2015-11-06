@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Organize pool</title>
 <link href="sources/style.css" rel="stylesheet" type="text/css">
 <script>
 	
@@ -32,7 +32,7 @@
 			return false;
 		} else if(minimum.valueOf() > maximum.valueOf()){
 			alert("Minimum number of participants can't be bigger than maximum");
-			return flase;
+			return false;
 		}else if(price.valueOf() < 5.00 || price.valueOf() == null){
 			alert("Minimum price is 5 pesos");
 			return false;

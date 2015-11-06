@@ -12,7 +12,7 @@
 	<jsp:include page="../sources/head.jsp" />
 	<table width="100%" cellspacing="10">
 		<tr>
-			<td width="50%">GIANT IMAGE OF USER'S FACE</td>
+			<td width="50%"><img alt="quinielero_image" src="http://xn--casasdeapuestasespaa-m7b.net/wp-content/uploads/2015/09/casas-apuestas-espa%C3%B1a.jpg"></td>
 			<td>
 				<table width="100%">
 					<tr>
