@@ -19,7 +19,7 @@ public class Quiniela {
 
     public List<Team> teams;
 
-    public Quiniela() {
+    public Quiniela() { /// UN CONSTRUCTOR
         this.type = "default";
         teams = new ArrayList<Team>();
     }
@@ -56,7 +56,7 @@ public class Quiniela {
 	private String start_date;
 	private double pools_price;
 	
-	public Quiniela(String name){
+	public Quiniela(String name){  ///// DOS CONSTRUCTORES???
 		setName(name);		
 	}
 	public String getLeague() {

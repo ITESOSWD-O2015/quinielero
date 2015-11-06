@@ -38,6 +38,7 @@ public class ModeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Quiniela quiniela = new Quiniela ();
 		quiniela.setPoolMode(request.getParameter("select_pool_mode_button"));
+		
 	}
 
 }
