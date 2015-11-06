@@ -21,9 +21,9 @@
 					<a href="#">FAQ<span class="arrow">&#9660</span></a>
 					<ul class="pools_sub_menu">
 						<li><a href="faq/about_game_modes.jsp">About Game Modes</a></li>
-						<li><a href="#">About Joining Pools</a></li>
-						<li><a href="#">About Organizing Pools</a></li>
-						<li><a href="#">Frequently Asked Questions</a></li>
+						<li><a href="faq/about_joining_pools.jsp"">About Joining Pools</a></li>
+						<li><a href="faq/about_organizing_pools.jsp">About Organizing Pools</a></li>
+						<li><a href="faq/frequently_asked_questions.jsp">Frequently Asked Questions</a></li>
 					</ul>
 				</li>						
 					
