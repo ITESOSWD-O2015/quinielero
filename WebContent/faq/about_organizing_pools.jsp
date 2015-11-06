@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Quinielero | About Joining Pools</title>
+<title>Quinielero | About Organizing Pools</title>
 <link href="sources/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
