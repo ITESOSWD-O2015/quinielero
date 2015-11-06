@@ -5,13 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Quinielero | About Joining Pools</title>
-<link href="sources/style.css" rel="stylesheet" type="text/css">
+<link href="../sources/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<jsp:include page="../sources/head.jsp" />
 		
 	<div class="currentSelection">
-		<h2>Joining Pools</h2>	
+		<h2> <br> <br> <center> Joining Pools </center> </h2>	
 	</div>
 	
 	

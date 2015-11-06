@@ -5,13 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Quinielero | About Game Modes</title>
-<link href="sources/style.css" rel="stylesheet" type="text/css">
+<link href="../sources/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<jsp:include page="../sources/head.jsp" />
 	
 	<div class="currentSelection">
-		<h2>Game Modes</h2>	
+		<h2> <br> <br> <center>Game Modes</center></h2>	
 	</div>
 	
 	
