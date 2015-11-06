@@ -1,2 +1,7 @@
-com/iteso/quinielero/users/Profile.class
-com/iteso/quinielero/servlets/user/LoginServlet.class
+com\iteso\quinielero\servlets\pool\InvitePeopleServlet.class
+com\iteso\quinielero\servlets\user\LoginServlet.class
+com\iteso\quinielero\quiniela\Quiniela.class
+com\iteso\quinielero\quiniela\Team.class
+com\iteso\quinielero\servlets\pool\CreatePoolServlet.class
+com\iteso\quinielero\servlets\pool\ModeServlet.class
+com\iteso\quinielero\users\Profile.class

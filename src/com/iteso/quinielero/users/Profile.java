@@ -1,5 +1,10 @@
 package com.iteso.quinielero.users;
 
+import java.util.ArrayList;
+
+import com.iteso.quinielero.quiniela.Quiniela;
+import com.iteso.quinielero.quiniela.Team;
+
 public class Profile {
 	String username;
 	String firstName;
@@ -13,6 +18,21 @@ public class Profile {
 	String phone;
 	String nickname;
 	String memberSince;
+	ArrayList<Quiniela> createdQuinielas = new ArrayList<Quiniela>();
+	ArrayList<Quiniela> activeQuinielas = new ArrayList<Quiniela>();
+	
+	public void addCreatedQuinielas(Quiniela quiniela){
+		createdQuinielas.add(quiniela);
+	}
+	public void addActiveQuinielas(Quiniela quiniela){
+		activeQuinielas.add(quiniela);
+	}
+	public ArrayList<Quiniela> getCreatedQuinielas() {
+		return createdQuinielas;
+	}
+	public ArrayList<Quiniela> getActiveQuinielas() {
+		return activeQuinielas;
+	}
 	public String getUsername() {
 		return username;
 	}

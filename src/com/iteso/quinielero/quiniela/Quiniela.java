@@ -12,7 +12,7 @@ public class Quiniela {
 		this.poolmode = mode;
 	}
 
-	String getPoolMode() {
+	public String getPoolMode() {
 		return this.poolmode;
 	}
 	private String type = "";
