@@ -3,7 +3,6 @@ package com.iteso.quinielero.users;
 import java.util.ArrayList;
 
 import com.iteso.quinielero.quiniela.Quiniela;
-import com.iteso.quinielero.quiniela.Team;
 
 public class Profile {
 	String username;

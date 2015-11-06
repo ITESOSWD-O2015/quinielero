@@ -12,7 +12,7 @@ import com.iteso.quinielero.quiniela.Quiniela;
 /**
  * Servlet implementation class ModeServlet
  */
-@WebServlet("pool/ModeServlet")
+@WebServlet("/ModeServlet")
 public class ModeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,7 +28,8 @@ public class ModeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
