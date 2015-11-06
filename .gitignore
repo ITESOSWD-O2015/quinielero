@@ -42,6 +42,8 @@ local.properties
 .externalToolBuilders/
 *.launch
 .buildpath
+target\m2e-wtp\web-resources\META-INF\maven\*
+pom.properties
  
 # phpstorm
 .idea/
