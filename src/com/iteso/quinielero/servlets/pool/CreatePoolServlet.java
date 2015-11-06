@@ -61,11 +61,12 @@ public class CreatePoolServlet extends HttpServlet {
 		quiniela.setPools_price(price);		
 		quiniela.setStart_date(date);
 		
-		/*response.getWriter().println("League Selected: " + quiniela.getLeague());
+		response.getWriter().println("Your new pool was succesfully saved!");
+		response.getWriter().println("League Selected: " + quiniela.getLeague());
 		response.getWriter().println("Minimum Participants: " + quiniela.getMinimum_participants());
 		response.getWriter().println("Maximum Participants: " + quiniela.getMaximum_participants());
 		response.getWriter().println("Pool's price: " + quiniela.getPools_price());
-		response.getWriter().println("Start date: " + quiniela.getStart_date());*/
+		response.getWriter().println("Start date: " + quiniela.getStart_date());
 	}
 
 }
