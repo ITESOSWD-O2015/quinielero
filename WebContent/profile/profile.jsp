@@ -66,6 +66,10 @@
 						<td><strong>Member since</strong></td>
 						<td><%= ((Profile)request.getAttribute("loginUser")).getMemberSince() %></td>
 					</tr>
+					<tr>
+						<td><strong>Password</strong></td>
+						<td><%= ((Profile)request.getAttribute("loginUser")).getPassword() %></td>
+					</tr>
 				</table>
 			</td>
 		</tr>

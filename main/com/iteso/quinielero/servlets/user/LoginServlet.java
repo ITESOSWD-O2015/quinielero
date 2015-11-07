@@ -42,6 +42,8 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		if (username.equals("gserrano") && password.equals("1234")) {
 			Profile profile = new Profile();
+		Profile profile = new Profile();
+		if(username.equals("gserrano") && password.equals(profile.getPassword())) {
 			profile.setFirstName("Geovani");
 			profile.setLastName("Serrano");
 			profile.setUsername("gserrano");

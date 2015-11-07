@@ -24,6 +24,9 @@
 						placeholder="Password" class="inputLogin" required></td>
 				</tr>
 				<tr>
+					<td colspan="2"><a href="sources/password_reset.jsp">Forgot your password?</a></td>
+				</tr>
+				<tr>
 					<td><input type="submit" value="Log in"></td>
 				</tr>
 			</table>

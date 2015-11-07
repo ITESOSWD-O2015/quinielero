@@ -19,7 +19,8 @@ public class Profile {
 	String memberSince;
 	ArrayList<Quiniela> createdQuinielas = new ArrayList<Quiniela>();
 	ArrayList<Quiniela> activeQuinielas = new ArrayList<Quiniela>();
-
+	String password = "1234";
+	
 	public Profile() {
 		super();
 	}
@@ -141,5 +142,11 @@ public class Profile {
 
 	public void setMemberSince(String memberSince) {
 		this.memberSince = memberSince;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
