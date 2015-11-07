@@ -105,7 +105,17 @@
 			%>
 		</table>
 	</div>
+		<form action="../LeavePool" method="post" >
+			<h5> Would you like to leave a quiniela you are part of? Copy its name and paste it below </h5>
+				Name: <input type="text" name="id_quiniela" min=1 max=j  id="id_quiniela" required>
+				<button id="leave" value="leave">LEAVE</button>
+		</form>	
+	
 	</p>
+	
+
+
+	
 
 </body>
 </html>

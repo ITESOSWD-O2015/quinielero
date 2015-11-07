@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: Carlos
 Build-Jdk: 1.8.0_45
+=======
+Built-By: Paloma
+Build-Jdk: 1.8.0_65
+>>>>>>> 85c4347d0f5ff140bd72dc80c67faf8bec981e24
 Created-By: Maven Integration for Eclipse
 
