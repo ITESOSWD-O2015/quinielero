@@ -5,56 +5,67 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Organize pool</title>
-<link href="sources/style.css" rel="stylesheet" type="text/css">
+<link href="../sources/style.css" rel="stylesheet" type="text/css">
 <script>
 	
-	function valideDatos(){
-		var leage_selection = document.getElementById("select_league_button");
-		var maximum = document.getElementById("minimum_participants");
-		var minimum = document.getElementById("maximum_participants");
-		var price   = document.getElementById("pool_price");
-		var date    = document.getElementById("start_date");
-		var invite  = document.getElementById("invite_people_button");
-		var name    = document.getElementById("pool_name");
-		
-		//variables to get current date
-		var today = new Date();
-		var dd = today.getDate();
-		var mm = today.getMonth()+1; //January is 0!
-		var yyyy = today.getFullYear();
-		//ar today_date = dd
-		
-		if(maximum.valueOf() > 99 || maximum.valueOf() < 2 || maximum.valueOf()==null){
-			alert("Number of participants must be between 2 and 99");
-			return false;
-		} else if(minimum.valueOf() >99 || minimum.valueOf() < 2 || minimum.valueOf()==null){
-			alert("Number of participants must be between 2 and 99");
-			return false;
-		} else if(minimum.valueOf() > maximum.valueOf()){
-			alert("Minimum number of participants can't be bigger than maximum");
-			return false;
-		}else if(price.valueOf() < 5.00 || price.valueOf() == null){
-			alert("Minimum price is 5 pesos");
-			return false;
-		}else if(name == null || name == ""){
-			alert("You must give a name to your pool");
-			return false;
-		}else{
-			return true;
+		function validateDatos(){					
+			var league     = document.getElementById("select_league_button");
+			var minimum    = document.getElementById("minimum_participants");
+			var maximum    = document.getElementById("maximum_participants");
+			var price      = document.getElementById("pool_price");
+			var startDate  = "" + document.getElementById("start_date");
+			var invite     = document.getElementById("invite_people_button");
+			var name       = document.getElementById("pool_name");
+			
+			
+			//current date
+			var today = new Date();
+			var dd    = "" + today.getDay();
+			var mm    = "" + today.getMonth()+1; 
+			var yyyy  = "" + today.getFullYear();
+			
+			//extraction from date
+			var day   = "" + startDate.charAt(8) + startDate.charAt(9);   
+			var month = "" + startDate.charAt(5) + startDate.charAt(6);
+			var year  = "" + startDate.charAt(0) + startDate.charAt(1) + startDate.charAt(2) + startDate.charAt(3);
+			
+			
+			if(maximum.value > 99 || maximum.value < 2 || maximum.value==null){
+				alert("Number of participants must be between 2 and 99");
+				return false;
+			} else if(minimum.value >99 || minimum.value < 2 || minimum.value==null){
+				alert("Number of participants must be between 2 and 99");
+				return false;
+			} else if(minimum.value > maximum.value){
+				alert("Minimum number of participants can't be bigger than maximum");
+				return false;
+			}else if(price.value < 5.00 || price.value == null){
+				alert("Minimum price is 5 pesos");
+				return false;
+			}else if(name == null || name == ""){
+				alert("You must give a name to your pool");
+				return false;
+			}else if(parseInt(yyyy) > parseInt(year)){
+				alert("You can't choose a date that has already passed");
+				return false;				
+			}else {	
+				location.refresh(true);				
+				return true;			
+			}
 		}
 			
-	}
+	
 	</script>
 </head>
 <body>
 	<jsp:include page="../sources/head.jsp" />	
 	<div class="currentSelection">
-		<h2>Organize Pools</h2>	
+		<br><br><center> <h2>Organize Pools</h2></center>
 	</div>
 	
 	
 	<div class="firstStep">		
-		<form action="../../CreatePoolServlet" method="post" onsubmit="return validateDatos();">	
+		<form action="../CreatePoolServlet" method="post" onsubmit="return validateDatos()">	
 		
 			
 			<h3>Give a name to your pool</h3>
