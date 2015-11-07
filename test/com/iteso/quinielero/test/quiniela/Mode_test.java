@@ -11,7 +11,23 @@ import com.iteso.quinielero.servlets.pool.ModoServlet;
 public class Mode_test {
 Quiniela quiniela;
 
-@Before
-public void setUp(){
-   // test
+@Test
+public void TestLeagueMode(){
+	  Quiniela quiniela = new Quiniela();
+      quiniela.setPoolMode("league");
+      assertEquals("league", quiniela.getPoolMode());
+}
+
+@Test
+public void TestGameMode(){
+	  Quiniela quiniela = new Quiniela();
+      quiniela.setPoolMode("game");
+      assertEquals("game", quiniela.getPoolMode());
+}
+
+@Test
+public void TestRoundMode(){
+	  Quiniela quiniela = new Quiniela();
+      quiniela.setPoolMode("round");
+      assertEquals("round", quiniela.getPoolMode());
 }
