@@ -42,26 +42,26 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		if (username.equals("gserrano") && password.equals("1234")) {
 			Profile profile = new Profile();
-		Profile profile = new Profile();
-		if(username.equals("gserrano") && password.equals(profile.getPassword())) {
-			profile.setFirstName("Geovani");
-			profile.setLastName("Serrano");
-			profile.setUsername("gserrano");
-			profile.setStreet1("Monte Blanco 282");
-			profile.setStreet2("");
-			profile.setCity("Guadalajara");
-			profile.setState("Jalisco");
-			profile.setCountry("México");
-			profile.setZip("44340");
-			profile.setPhone("(33) 1023 1780");
-			profile.setMemberSince("November 1, 2015");
-			profile.setNickname("Wolf Blood Dude");
-			request.setAttribute("loginUser", profile);
-			request.getRequestDispatcher("profile/profile.jsp").forward(request, response);
-		} else {
-			System.out.println("Login error");
-			response.sendRedirect("index.jsp");
+			if(username.equals("gserrano") && password.equals(profile.getPassword())) {
+				profile.setFirstName("Geovani");
+				profile.setLastName("Serrano");
+				profile.setUsername("gserrano");
+				profile.setStreet1("Monte Blanco 282");
+				profile.setStreet2("");
+				profile.setCity("Guadalajara");
+				profile.setState("Jalisco");
+				profile.setCountry("México");
+				profile.setZip("44340");
+				profile.setPhone("(33) 1023 1780");
+				profile.setMemberSince("November 1, 2015");
+				profile.setNickname("Wolf Blood Dude");
+				request.setAttribute("loginUser", profile);
+				request.getRequestDispatcher("profile/profile.jsp").forward(request, response);
+			} else {
+				System.out.println("Login error");
+				response.sendRedirect("index.jsp");
+			}
 		}
-	}
 
+	}
 }
