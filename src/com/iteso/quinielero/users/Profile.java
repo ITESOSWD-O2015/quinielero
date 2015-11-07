@@ -20,6 +20,16 @@ public class Profile {
 	ArrayList<Quiniela> createdQuinielas = new ArrayList<Quiniela>();
 	ArrayList<Quiniela> activeQuinielas = new ArrayList<Quiniela>();
 	
+	
+	public Profile() {
+		super();
+	}
+	public Profile(String username, String firstName, String lastName) {
+		super();
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 	public void addCreatedQuinielas(Quiniela quiniela){
 		createdQuinielas.add(quiniela);
 	}
