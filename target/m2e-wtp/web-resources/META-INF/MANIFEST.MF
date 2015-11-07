@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: Aldo
 Build-Jdk: 1.8.0_60
-=======
-Built-By: Carlos
-Build-Jdk: 1.8.0_45
->>>>>>> bf6f2daa177556a91164b6a9723da690eae3522e
 Created-By: Maven Integration for Eclipse
 

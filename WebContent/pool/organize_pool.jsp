@@ -8,7 +8,7 @@
 <link href="../sources/style.css" rel="stylesheet" type="text/css">
 <script>
 	
-		function valideDatos(){			
+		function validateDatos(){					
 			var league     = document.getElementById("select_league_button");
 			var minimum    = document.getElementById("minimum_participants");
 			var maximum    = document.getElementById("maximum_participants");
@@ -45,10 +45,13 @@
 			}else if(name == null || name == ""){
 				alert("You must give a name to your pool");
 				return false;
-			}else if(yyyy > year){
+			}else if(parseInt(yyyy) > parseInt(year)){
 				alert("You can't choose a date that has already passed");
-				return false;
-			}else return true;			
+				return false;				
+			}else {	
+				location.refresh(true);				
+				return true;			
+			}
 		}
 			
 	
@@ -62,7 +65,7 @@
 	
 	
 	<div class="firstStep">		
-		<form action="../CreatePoolServlet" method="post" onsubmit="return validateDatos();">	
+		<form action="../CreatePoolServlet" method="post" onsubmit="return validateDatos()">	
 		
 			
 			<h3>Give a name to your pool</h3>
