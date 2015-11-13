@@ -1,12 +1,16 @@
 package com.iteso.quinielero.servlets.user;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.iteso.quinielero.mysql.DatabaseConnection;
 import com.iteso.quinielero.users.Profile;
 
 /**
@@ -38,30 +42,37 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		ResultSet resultSet = null;
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		if (username.equals("gserrano") && password.equals("1234")) {
-			Profile profile = new Profile();
-			if(username.equals("gserrano") && password.equals(profile.getPassword())) {
-				profile.setFirstName("Geovani");
-				profile.setLastName("Serrano");
-				profile.setUsername("gserrano");
-				profile.setStreet1("Monte Blanco 282");
-				profile.setStreet2("");
-				profile.setCity("Guadalajara");
-				profile.setState("Jalisco");
-				profile.setCountry("México");
-				profile.setZip("44340");
-				profile.setPhone("(33) 1023 1780");
-				profile.setMemberSince("November 1, 2015");
-				profile.setNickname("Wolf Blood Dude");
+		Profile profile = new Profile();
+		try {
+			resultSet = DatabaseConnection.queryStatement("SELECT * FROM user WHERe username = '" + username + "' AND password = '" + password + "'");
+			if (resultSet.next()) {
+				do {
+					profile.setId(resultSet.getString("iduser"));
+					profile.setFirstName(resultSet.getString("firstName"));
+					profile.setLastName(resultSet.getString("lastName"));
+					profile.setUsername(resultSet.getString("username"));
+					profile.setStreet1(resultSet.getString("street1"));
+					profile.setStreet2(resultSet.getString("street2"));
+					profile.setCity(resultSet.getString("city"));
+					profile.setState(resultSet.getString("state"));
+					profile.setCountry(resultSet.getString("country"));
+					profile.setZip(resultSet.getString("zip"));
+					profile.setPhone(resultSet.getString("phone"));
+					profile.setMemberSince(resultSet.getString("membersince"));
+					profile.setNickname(resultSet.getString("nickname"));
+				} while (resultSet.next());
 				request.setAttribute("loginUser", profile);
 				request.getRequestDispatcher("profile/profile.jsp").forward(request, response);
 			} else {
 				System.out.println("Login error");
 				response.sendRedirect("index.jsp");
 			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-
 	}
 }

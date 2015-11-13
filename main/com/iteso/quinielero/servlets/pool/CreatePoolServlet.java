@@ -1,12 +1,16 @@
 package com.iteso.quinielero.servlets.pool;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.iteso.quinielero.mysql.DatabaseConnection;
 import com.iteso.quinielero.quiniela.Quiniela;
 
 /**
@@ -47,15 +51,6 @@ public class CreatePoolServlet extends HttpServlet {
 		float price = Float.parseFloat(request.getParameter("pool_price"));
 		String date = request.getParameter("start_date");
 
-		/*
-		 * response.getWriter().println("Pool's name: "+ name);
-		 * response.getWriter().println("League Selected: " + league);
-		 * response.getWriter().println("Minimum Participants: " + minimum);
-		 * response.getWriter().println("Maximum Participants: " + maximum);
-		 * response.getWriter().println("Pool's price: " + price);
-		 * response.getWriter().println("Start date: " + date);
-		 */
-
 		Quiniela quiniela = new Quiniela(name);
 
 		quiniela.setLeague(league);
@@ -63,6 +58,17 @@ public class CreatePoolServlet extends HttpServlet {
 		quiniela.setMaximum_participants(maximum);
 		quiniela.setPools_price(price);
 		quiniela.setStart_date(date);
+		quiniela.setPoolMode(request.getParameter("select_pool_mode_button"));
+
+		
+		try {
+			DatabaseConnection.updateStatement("INSERT INTO Quiniela (name, idliga, idCreator, minParticipant, maxParticipant, begin, price, idTipoQuiniela) VALUES ('" + quiniela.getName() + "', '1', '1', '"
+					+ quiniela.getMinimum_participants() + "', '" + quiniela.getMaximum_participants() + "', '2015-01-15', '" + quiniela.getPools_price() + "', '" + quiniela.getPoolMode()
+					+ "'");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		response.getWriter().println("Your new pool was succesfully saved!");
 		response.getWriter().println("League Selected: " + quiniela.getLeague());
@@ -70,6 +76,7 @@ public class CreatePoolServlet extends HttpServlet {
 		response.getWriter().println("Maximum Participants: " + quiniela.getMaximum_participants());
 		response.getWriter().println("Pool's price: " + quiniela.getPools_price());
 		response.getWriter().println("Start date: " + quiniela.getStart_date());
+		response.getWriter().println("You have successfully created a " + quiniela.getPoolMode() + " mode quiniela");
 	}
 
 }

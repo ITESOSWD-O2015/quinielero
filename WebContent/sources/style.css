@@ -1,129 +1,91 @@
 @CHARSET "UTF-8";
 
 * {
-	font-family: Arial;
+	font-family: Lato, Arial;
 	background: white;
 }
 
 #login_div {
-	background-color: blue;
 	border: 5px solid blue;
 	margin: 10% 30% 30% 30%;
 	box-shadow: 0px 0px 10px black;
 	text-align: center;
 }
-
-h3 {
-	font-family: Verdana;
-}
-
 .inputLogin {
 	height: 20px;
 	width: 100%;
 }
 
-.header {
-	background-color: blue;
-	border: 3px solid black;
-}
-@CHARSET "ISO-8859-1";
-
-body {
-    background:#bf5c71;
-}
-
- 
-.clearfix:after {
-    display:block;
-    clear:both;
+#profile {
+	margin:3% 3% 3% 3%;
 }
 
 .mainLogo {
-	
-	display: block;
-	position: static;
-	height: 80px;	
-	bottom:0;
-    top:0;
-    left:0;
-    right:0;
-    margin-top:0px;
-    margin-bottom:20px;
-    margin-right:0px;
-    margin-left:0px;
-    font-size: 150%;
-	background:#5a4b4e;
-    padding: 10px;
-    font-family:'Ek Mukta';
-    color: #919191;
+	position: static;	
+	background:#0080ff;
+	color: #ffffff;
     text-align: center;
     text-decoration:none;
+    width: 100%;
 }
-
-.mainLogo a{
+.mainLogo a {
 	text-decoration:none;
-    transition:all linear 0.15s;
-    color:#919191;
-	
+    background:#0080ff;
+	color: #ffffff;
 }
-
-/****************************************/
-/*********** MENU PRINCIPAL *************/ 
-/****************************************/
-
 .main-menu {
     width:100%;
-    box-shadow:0px 1px 3px rgba(0,0,0,0.2);
-    background:#3e3436;
+    background:#0080ff;
+	color: #ffffff;
+	border: 5px solid black;
 }
 
 .menu {
-	width:1000px;
-    margin:0px auto;
+	width:"100%";
+    background:#0080ff;
+	color: #ffffff;
 }
 
 .menu li {
     margin:0px;
     list-style:none;
-    font-family:'Ek Mukta';    
-    background:#5a4b4e;
+    background:#0080ff;
+	color: #ffffff;
 }
 
 .menu a {
 	text-decoration:none;
-    transition:all linear 0.15s;
-    color:#919191;
+    background:#0080ff;
+	color: #ffffff;
 }
 
 .menu li:hover > a, .menu .current-item > a {
     text-decoration:none;
-    color:#be5b70;
+    background:#0080ff;
+	color: #ffffff;
 }
-
-.menu .arrow {
-    font-size:5x;
-    line-height:0%;
-}
-
-/***********************/
-/*******Top Level*******/
-/***********************/
 
 .menu > ul > li {
     float:left;
     display:inline-block;
     position:relative;
     font-size:19px;
+    background:#0080ff;
+	color: #ffffff;
 }
  
 .menu > ul > li > a {
     padding:10px 40px;
     display:inline-block;
     text-shadow:0px 1px 0px rgba(0,0,0,0.4);
+    background:#0080ff;
+	color: #ffffff;
 }
  
 .menu > ul > li:hover > a, .menu > ul > .current-item > a {
     background:#2e2728;
+    background:#0080ff;
+	color: #ffffff;
 }
 
 /**************************/

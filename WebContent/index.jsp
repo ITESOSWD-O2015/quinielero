@@ -5,33 +5,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="sources/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+<script type="text/javascript" src="sources/scripts.js" ></script>
 <title>Quinielero</title>
 </head>
-<body>
 
-	<div id="login_div">
-		<form action="LoginServlet" method="post" onsubmit="return valideDatos();">
-			<table width="100%" cellspacing="15">
-				<tr>
-					<td><h3>Quinielero</h3></td>
-				</tr>
-				<tr>
-					<td><input type="text" name="username" placeholder="Username"
-						class="inputLogin" required></td>
-				</tr>
-				<tr>
-					<td><input type="password" name="password"
-						placeholder="Password" class="inputLogin" required></td>
-				</tr>
-				<tr>
-					<td colspan="2"><a href="sources/password_reset.jsp">Forgot your password?</a></td>
-				</tr>
-				<tr>
-					<td><input type="submit" value="Log in"></td>
-				</tr>
-			</table>
-		</form>
-	</div>
+<body>
+<div id="login_div">
+<form action="LoginServlet" method="post" onsubmit="return valideLogin();">
+<table width="100%" cellspacing="15">
+	<tr>
+		<td><h3>Quinielero</h3></td>
+	</tr>
+	<tr>
+		<td><input type="text" name="username" placeholder="Username" class="inputLogin" required></td>
+	</tr>
+	<tr>
+		<td><input type="password" name="password" placeholder="Password" class="inputLogin" required></td>
+	</tr>
+	<tr>
+		<td colspan="2"><a href="sources/password_reset.jsp">Forgot your password?</a></td>
+	</tr>
+	<tr>
+		<td><input type="submit" value="Log in"></td>
+	</tr>
+</table>
+</form>
+</div>
 
 </body>
 </html>
