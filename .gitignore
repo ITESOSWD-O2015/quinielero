@@ -43,7 +43,8 @@ local.properties
 *.launch
 .buildpath
 .target\m2e-wtp\web-resources\META-INF\maven\pom.properties
- 
+*/target/**
+
 # phpstorm
 .idea/
  

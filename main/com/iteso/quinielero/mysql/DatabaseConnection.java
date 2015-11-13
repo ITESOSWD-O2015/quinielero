@@ -27,10 +27,6 @@ public class DatabaseConnection {
         // Execute the query and get the result set.
         ResultSet resultSet = statement.executeQuery(query);
         
-        //Close everything
-        statement.close();
-        connect.close();
-        
         //Return query
 		return resultSet;
     }

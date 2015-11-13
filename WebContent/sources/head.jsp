@@ -1,10 +1,10 @@
-<div class="mainLogo">
-<table style="background: #0080ff">
+<div class="header">
+<table>
 <tr>
-	<td width="50%" align="center" style="background: #0080ff"><h1 style="background: #0080ff"><a href="index.jsp">Quinielero</a></h1></td>
-	<td width="50%" align="center" style="background: #0080ff">
-	<nav class="menu">
-	<ul class = "clearfix">
+	<td width="50%" align="center"><h1><a href="index.jsp">Quinielero</a></h1></td>
+	<td width="50%" align="center">
+	<nav>
+	<ul>
 		<li><a href='#'>Home</a></li>
 		<li><a href='#'>Pools</a>
 			<ul class="pools_sub_menu">

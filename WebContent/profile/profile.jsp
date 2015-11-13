@@ -18,7 +18,7 @@
 <div id="profile">	
 <table width="100%" cellspacing="20" align="center">
 <tr>
-	<td width="50%" align="center"><img style="high:500px; width:500px" src="http://www.lifesgood.es/wp-content/uploads/2014/12/brad-pitt-magazine.jpg"></td>
+	<td width="50%" align="center"><img style="high:500px; width:500px" src="http://im.ziffdavisinternational.com/ign_es/screenshot/j/jennifer-lawrence-incendia-la-pantalla/jennifer-lawrence-incendia-la-pantalla_c2d8.jpg"></td>
 	<td align="center">
 	<h3>Profile</h3>
 	<table width="80%">
