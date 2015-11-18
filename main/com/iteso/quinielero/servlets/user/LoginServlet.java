@@ -47,10 +47,10 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		Profile profile = new Profile();
 		try {
-			resultSet = DatabaseConnection.queryStatement("SELECT * FROM user WHERe username = '" + username + "' AND password = '" + password + "'");
+			resultSet = DatabaseConnection.queryStatement("SELECT * FROM User WHERe username = '" + username + "' AND password = '" + password + "'");
 			if (resultSet.next()) {
 				do {
-					profile.setId(resultSet.getString("iduser"));
+					profile.setId(resultSet.getString("idUser"));
 					profile.setFirstName(resultSet.getString("firstName"));
 					profile.setLastName(resultSet.getString("lastName"));
 					profile.setUsername(resultSet.getString("username"));
