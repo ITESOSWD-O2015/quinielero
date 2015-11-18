@@ -10,9 +10,9 @@ public class LeavePoolTest {
 	Quiniela quiniela;
 	 @Test
 	    public void testRemoveQuiniela(){
-		 profile = new Profile();
+		 //profile = new Profile();
 		 quiniela = new Quiniela("quiniela1");
-		 profile.addActiveQuinielas(quiniela);
+		 //profile.addActiveQuinielas(quiniela);
 		 assertTrue(  profile.getActiveQuinielas().remove(quiniela));
 	 }
 }

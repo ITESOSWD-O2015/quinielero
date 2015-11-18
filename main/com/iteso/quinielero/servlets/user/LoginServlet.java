@@ -6,12 +6,13 @@ import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.iteso.quinielero.mysql.DatabaseConnection;
-import com.iteso.quinielero.users.Profile;
 
 /**
  * Servlet implementation class LoginServlet
@@ -45,27 +46,19 @@ public class LoginServlet extends HttpServlet {
 		ResultSet resultSet = null;
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		Profile profile = new Profile();
 		try {
-			resultSet = DatabaseConnection.queryStatement("SELECT * FROM User WHERe username = '" + username + "' AND password = '" + password + "'");
+			resultSet = DatabaseConnection.queryStatement("SELECT * FROM User WHERE username = '" + username + "' AND password = '" + password + "'");
 			if (resultSet.next()) {
 				do {
-					profile.setId(resultSet.getString("idUser"));
-					profile.setFirstName(resultSet.getString("firstName"));
-					profile.setLastName(resultSet.getString("lastName"));
-					profile.setUsername(resultSet.getString("username"));
-					profile.setStreet1(resultSet.getString("street1"));
-					profile.setStreet2(resultSet.getString("street2"));
-					profile.setCity(resultSet.getString("city"));
-					profile.setState(resultSet.getString("state"));
-					profile.setCountry(resultSet.getString("country"));
-					profile.setZip(resultSet.getString("zip"));
-					profile.setPhone(resultSet.getString("phone"));
-					profile.setMemberSince(resultSet.getString("membersince"));
-					profile.setNickname(resultSet.getString("nickname"));
+					HttpSession session = request.getSession();
+					session.setAttribute("idUser", resultSet.getString("idUser"));
+					session.setMaxInactiveInterval(24 * 60 * 60);
+				
+					Cookie idUser = new Cookie("idUser", resultSet.getString("idUser"));
+					idUser.setMaxAge(24 * 60 * 60);
+					response.addCookie(idUser);
 				} while (resultSet.next());
-				request.setAttribute("loginUser", profile);
-				request.getRequestDispatcher("profile/profile.jsp").forward(request, response);
+				response.sendRedirect("profile/profile.jsp");
 			} else {
 				System.out.println("Login error");
 				response.sendRedirect("index.jsp");

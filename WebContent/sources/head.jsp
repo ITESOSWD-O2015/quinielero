@@ -22,7 +22,8 @@
 				<li><a href="faq/about_organizing_pools.jsp">About Organizing Pools</a></li>
 				<li><a href="faq/frequently_asked_questions.jsp">Frequently Asked Questions</a></li>
 			</ul>
-		</li>								
+		</li>
+		<li><a href="../LogoutServlet">Sign out</a></li>								
 	</ul>
 	</nav>
 	</td>
