@@ -100,11 +100,10 @@ function validateDatos(){
 <input type="hidden" name="user_id" id="user_id" value="<%=loginUser.getId()%>">
 
 <h3>Select the league for you pool</h3>
-<input type="radio" name="select_league_button" value="uefa" id="select_league_button" required>  UEFA <br>
-<input type="radio" name="select_league_button" value="bundesliga"id="select_league_button" > Bundesliga <br>
-<input type="radio" name="select_league_button" value="mls" id="select_league_button"> MLS <br>
-<input type="radio" name="select_league_button" value="mundial" id="select_league_button"> Mundial <br>
-<input type="radio" name="select_league_button" value="primeradivisionmexicana" id="select_league_button"> Primera Division Mexicana <br>	
+<input type="radio" name="select_league_button" value="UEFA Champions League" id="select_league_button" required>  UEFA Champions League <br>
+<input type="radio" name="select_league_button" value="Bundesliga"id="select_league_button" > Bundesliga <br>
+<input type="radio" name="select_league_button" value="Liga MX" id="select_league_button"> Liga MX <br>
+<input type="radio" name="select_league_button" value="FIFA World Cup" id="select_league_button"> FIFA World Cup <br>
 <br><br>
 
 <h3>Set the Pool's preferences</h3>
@@ -118,9 +117,9 @@ function validateDatos(){
 <br> <br>
 
 <h4>Pick your pool mode:</h4>
-<input type="radio" name="select_pool_mode_button" value="game" id="select_pool_mode_button" required> Game mode <br> 
-<input type="radio" name="select_pool_mode_button" value="round" id="select_pool_mode_button" > Round mode <br> 
-<input type="radio" name="select_pool_mode_button" value="league" id="select_pool_mode_button" > League mode <br>
+<input type="radio" name="select_pool_mode_button" value="Game" id="select_pool_mode_button" required> Game mode <br> 
+<input type="radio" name="select_pool_mode_button" value="Round" id="select_pool_mode_button" > Round mode <br> 
+<input type="radio" name="select_pool_mode_button" value="League" id="select_pool_mode_button" > League mode <br>
 
 <h4> Select a starting date for the pool))</h4>
 	Starting Date: <input type="date" name="start_date" pattern="\d{1,2}/\d{1,2}/\d{4}"  id="start_date" required>

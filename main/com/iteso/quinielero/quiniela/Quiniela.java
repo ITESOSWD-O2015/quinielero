@@ -6,24 +6,19 @@ import java.util.List;
 import com.iteso.quinielero.users.Profile;
 
 public class Quiniela {
-	private String league;
-
-	private int maximum_participants;
-
-	private int minimum_participants;
-
-	private String name;
-
-	private String poolmode;
-
-	private double pools_price;
-
-	private String start_date;
-
-	public List<Team> teams;
-
-	private String type = "";
 	
+	private String start_date;
+	private String leagueName;
+	private String poolmode;
+	private String name;
+	private double pools_price;
+	private int leagueId;	
+	private int poolModeId;	
+	private int maximum_participants;
+	private int minimum_participants;
+	private int creatorId;	
+	private List<Team> teams;
+	private String type = "";	
 	private ArrayList<Profile> pending_people = new ArrayList<Profile>();
 	private ArrayList<Profile> participants = new ArrayList<Profile>();
 
@@ -36,46 +31,25 @@ public class Quiniela {
 		setName(name);
 	}
 
-	public void addTeam(Team team) {
-		teams.add(team);
-	}
-	public String getLeague() {
-		return league;
-	}
-	public int getMaximum_participants() {
-		return maximum_participants;
-	}
-	public int getMinimum_participants() {
-		return minimum_participants;
-	}
-	public String getName() {
-		return name;
-	}
-	public String getPoolMode() {
-		return this.poolmode;
-	}
-
-	public double getPools_price() {
-		return pools_price;
-	}
-
-	public String getStart_date() {
-		return start_date;
-	}
-
-	public List<Team> getTeams() {
-		return teams;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setLeague(String league) {
-
-		if (league == null || league == "")
-			this.league = "ERROR";
-		this.league = league;
+	public String getLeagueName(){return leagueName;}
+	public String getStart_date(){return start_date;}
+	public String getPoolMode(){return poolmode;}
+	public String getName(){return name;}
+	public String getType(){return type;}	
+	public int getMaximum_participants(){return maximum_participants;}
+	public int getMinimum_participants(){return minimum_participants;}	
+	public double getPools_price(){return pools_price;}	
+	public int getPoolModeId(){return poolModeId;}
+	public int getCreatorId(){return creatorId;}
+	public int getLeagueId(){return leagueId;}
+	public ArrayList<Profile> getPending_people() {return pending_people;}	
+	public List<Team> getTeams() {return teams;}
+	
+	
+	public void setLeagueName(String leagueName) {
+		if (leagueName == null || leagueName == "")
+			this.leagueName = "ERROR";
+		this.leagueName = leagueName;
 	}
 
 	public void setMaximum_participants(int maximum_participants) {
@@ -124,6 +98,8 @@ public class Quiniela {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	public void addTeam(Team team) {teams.add(team);}	
 
 	@Override
 	public String toString() {
@@ -135,20 +111,38 @@ public class Quiniela {
 		return "Quiniela de tipo " + type + " con los equipos: " + teams;
 	}
 
-	public ArrayList<Profile> getPending_people() {
-		return pending_people;
-	}
-
-	public void addPending_people(Profile profile) {
-		pending_people.add(profile);
-	}
 	
-	public void addParticipant(Profile profile) {
-		participants.add(profile);
-	}
+
+	public void addPending_people(Profile profile) {pending_people.add(profile);}	
+	public void addParticipant(Profile profile) {participants.add(profile);}
+	
 	
 	public void addParticipanFromPending(Profile profile){
 		pending_people.remove(profile);
 		participants.add(profile);
+	}
+
+	
+	public void setLeagueId(int leagueId) {		
+		if(leagueId>0)
+			this.leagueId = leagueId;
+		else
+			this.leagueId = -1;
+	}
+
+	public void setPoolModeId(int poolModeId) {
+		if(poolModeId>0)
+			this.poolModeId = poolModeId;
+		else
+			this.poolModeId = -1;
+	}
+
+	
+
+	public void setCreatorId(int creatorId) {
+		if(creatorId>0)
+			this.creatorId = creatorId;
+		else
+			this.creatorId = -1;
 	}
 }
