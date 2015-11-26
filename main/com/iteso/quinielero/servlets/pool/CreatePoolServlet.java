@@ -1,6 +1,8 @@
 package com.iteso.quinielero.servlets.pool;
 
+
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -12,6 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.iteso.quinielero.mysql.DatabaseConnection;
 import com.iteso.quinielero.quiniela.Quiniela;
 
+import com.iteso.quinielero.users.Profile;
+import com.mysql.*;
+import com.mysql.jdbc.*;
+
 /**
  * Servlet implementation class CreatePoolServlet
  */
@@ -19,6 +25,7 @@ import com.iteso.quinielero.quiniela.Quiniela;
 public class CreatePoolServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -43,13 +50,30 @@ public class CreatePoolServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		// Data inserted by the user
 		String name = request.getParameter("pool_name");
 		String league = request.getParameter("select_league_button");
 		int minimum = Integer.parseInt(request.getParameter("minimum_participants"));
 		int maximum = Integer.parseInt(request.getParameter("maximum_participants"));
 		float price = Float.parseFloat(request.getParameter("pool_price"));
 		String date = request.getParameter("start_date");
-
+		String mode = request.getParameter("select_pool_mode_button");
+		int idUser = Integer.parseInt(request.getParameter("user_id"));
+		
+		//Get the ID of the league
+		String query = "SELECT idQuinielaType FROM QuinielaType WHERE name='" + mode +"'";
+		int idMode = -1;
+		try{
+			ResultSet rs = DatabaseConnection.queryStatement(query);
+			rs.next();
+			idMode = rs.getInt("idQuinielaType");
+			
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		Quiniela quiniela = new Quiniela(name);
 
 		quiniela.setLeague(league);
@@ -60,7 +84,8 @@ public class CreatePoolServlet extends HttpServlet {
 		quiniela.setPoolMode(request.getParameter("select_pool_mode_button"));
 
 		
-		try {
+		try {			
+			
 			DatabaseConnection.updateStatement("INSERT INTO Quiniela (name, idliga, idCreator, minParticipant, maxParticipant, begin, price, idTipoQuiniela) VALUES ('" + quiniela.getName() + "', '1', '1', '"
 					+ quiniela.getMinimum_participants() + "', '" + quiniela.getMaximum_participants() + "', '2015-01-15', '" + quiniela.getPools_price() + "', '" + quiniela.getPoolMode()
 					+ "'");
@@ -70,12 +95,15 @@ public class CreatePoolServlet extends HttpServlet {
 		}
 
 		response.getWriter().println("Your new pool was succesfully saved!");
-		response.getWriter().println("League Selected: " + quiniela.getLeague());
 		response.getWriter().println("Minimum Participants: " + quiniela.getMinimum_participants());
 		response.getWriter().println("Maximum Participants: " + quiniela.getMaximum_participants());
 		response.getWriter().println("Pool's price: " + quiniela.getPools_price());
 		response.getWriter().println("Start date: " + quiniela.getStart_date());
+		response.getWriter().println("The ID of the pool creator is: " + idUser);
+		response.getWriter().println("League Selected: " + quiniela.getLeague());
 		response.getWriter().println("You have successfully created a " + quiniela.getPoolMode() + " mode quiniela");
+		response.getWriter().println("This type of pool has the id:  " + idMode);
+
 	}
 
 }

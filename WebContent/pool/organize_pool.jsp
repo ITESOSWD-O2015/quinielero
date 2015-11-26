@@ -1,5 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.iteso.quinielero.users.Profile"%>
+<% 
+// Allow access only if session exists
+String user = null;
+if (session.getAttribute("idUser") == null) {
+  	response.sendRedirect("../index.jsp");
+} else {
+	user = (String) session.getAttribute("idUser");
+}
+String idUser = null;
+Profile loginUser = null;
+Cookie[] cookies = request.getCookies();
+if (cookies != null) {
+	for(Cookie cookie : cookies){
+		if("idUser".equals(cookie.getName())){
+	        idUser = cookie.getValue();
+	    }
+	}
+	if (idUser.equals(null)) {
+		response.sendRedirect("../index.jsp");
+	} else {
+		loginUser = new Profile(idUser);
+	}
+	
+}
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,7 +34,7 @@
 <link href="../sources/style.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
 <script type="text/javascript" src="sources/scripts.js" ></script>
-<title>Organize a pool</title>
+<title>Quinielero | Organize a pool</title>
 <script>
 function validateDatos(){					
 	var league     = document.getElementById("select_league_button");
@@ -70,6 +97,7 @@ function validateDatos(){
 <form action="../CreatePoolServlet" method="post" onsubmit="return validateDatos()">	
 <h3>Give a name to your pool</h3>
 <input type="text" name="pool_name" id="pool_name" required> <br> <br>
+<input type="hidden" name="user_id" id="user_id" value="<%=loginUser.getId()%>">
 
 <h3>Select the league for you pool</h3>
 <input type="radio" name="select_league_button" value="uefa" id="select_league_button" required>  UEFA <br>
@@ -90,9 +118,9 @@ function validateDatos(){
 <br> <br>
 
 <h4>Pick your pool mode:</h4>
-<input type="radio" name="select_pool_mode_button" value="game" id="select_league_button" required> Game mode <br> 
-<input type="radio" name="select_pool_mode_button" value="round" id="select_league_button" > Round mode <br> 
-<input type="radio" name="select_pool_mode_button" value="league" id="select_league_button" > League mode <br>
+<input type="radio" name="select_pool_mode_button" value="game" id="select_pool_mode_button" required> Game mode <br> 
+<input type="radio" name="select_pool_mode_button" value="round" id="select_pool_mode_button" > Round mode <br> 
+<input type="radio" name="select_pool_mode_button" value="league" id="select_pool_mode_button" > League mode <br>
 
 <h4> Select a starting date for the pool))</h4>
 	Starting Date: <input type="date" name="start_date" pattern="\d{1,2}/\d{1,2}/\d{4}"  id="start_date" required>
