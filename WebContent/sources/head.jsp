@@ -14,7 +14,12 @@
 				<li><a href='#'>Edit Pool</a></li>				
 			</ul>
 		</li>
-		<li><a href="http://localhost:8080/Quinielero/profile/profile.jsp">Profile</a></li>
+		<li><a href="http://localhost:8080/Quinielero/profile/profile.jsp">Profile</a>
+			<ul class="pool_sub_menu">
+			<li><a href="http://localhost:8080/Quinielero/profile/notifications.jsp">Notifications</a></li>
+			</ul>
+		</li>
+
 		<li><a href="#">FAQ</a>
 			<ul class="pools_sub_menu">
 				<li><a href="http://localhost:8080/Quinielero/faq/about_game_modes.jsp">About Game Modes</a></li>
