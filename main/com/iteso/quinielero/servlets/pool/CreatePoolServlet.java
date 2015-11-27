@@ -84,6 +84,7 @@ public class CreatePoolServlet extends HttpServlet {
 		quiniela.setLeagueId(idLeague);	
 		quiniela.setPoolMode(mode);
 		quiniela.setPoolModeId(idMode);
+		quiniela.setCreatorId(idUser);
 		quiniela.setMinimum_participants(minimum);
 		quiniela.setMaximum_participants(maximum);
 		quiniela.setPools_price(price);
@@ -95,6 +96,7 @@ public class CreatePoolServlet extends HttpServlet {
 			
 			dbValues = "'" + quiniela.getName() + "','" + quiniela.getLeagueId() + "','" + quiniela.getCreatorId() + "','" + quiniela.getMinimum_participants()
 			+ "','" + quiniela.getMaximum_participants() + "','2015-12-21','" + quiniela.getPools_price() + "','" + quiniela.getPoolModeId() + "'";
+			
 			dbInsertion = "INSERT INTO Quiniela (name, idLeague, idCreator, minParticipants, maxParticipants, beginDate, price, idQuinielaType) " + "VALUES (" + dbValues + ")";
 			
 			DatabaseConnection.updateStatement(dbInsertion);
