@@ -36,15 +36,30 @@ if (cookies != null) {
 <script type="text/javascript" src="sources/scripts.js" ></script>
 <title>Quinielero | Organize a pool</title>
 <script>
-function validateDatos(){					
-	var league     = document.getElementById("select_league_button");
-	var minimum    = document.getElementById("minimum_participants");
-	var maximum    = document.getElementById("maximum_participants");
-	var price      = document.getElementById("pool_price");
-	var startDate  = "" + document.getElementById("start_date");
-	var invite     = document.getElementById("invite_people_button");
-	var name       = document.getElementById("pool_name");
+function validateDatos(){	
 	
+	var maximumS = document.forms["make_pool_form"]["maximum_participants"].value;
+	var minimumS = parseInt(document.forms["make_pool_form"]["minimum_participants"].value);
+	var name    = document.forms["make_pool_form"]["pool_name"].value;
+	
+	
+	var maximum = parseInt(maximumS);
+	var minimum = parseInt(minimumS);	
+	var nameAux = name.replace(" ","");
+	
+	alert("LEYENDO DATOS DE QUINIELA");
+	
+	if(minimum > maximum){
+		alert("Minimum can't be higher than maximum");
+		return false;
+	}else if(nameAux == ""){
+		alert("Your pool's name must have at least one character");
+		return false;
+	}else
+		return true;
+	
+	
+	/*
 	
 	//current date
 	var today = new Date();
@@ -55,31 +70,9 @@ function validateDatos(){
 	//extraction from date
 	var day   = "" + startDate.charAt(8) + startDate.charAt(9);   
 	var month = "" + startDate.charAt(5) + startDate.charAt(6);
-	var year  = "" + startDate.charAt(0) + startDate.charAt(1) + startDate.charAt(2) + startDate.charAt(3);
+	var year  = "" + startDate.charAt(0) + startDate.charAt(1) + startDate.charAt(2) + startDate.charAt(3);*/
 	
-	
-	if(maximum.value > 99 || maximum.value < 2 || maximum.value==null){
-		alert("Number of participants must be between 2 and 99");
-		return false;
-	} else if(minimum.value >99 || minimum.value < 2 || minimum.value==null){
-		alert("Number of participants must be between 2 and 99");
-		return false;
-	} else if(minimum.value > maximum.value){
-		alert("Minimum number of participants can't be bigger than maximum");
-		return false;
-	}else if(price.value < 5.00 || price.value == null){
-		alert("Minimum price is 5 pesos");
-		return false;
-	}else if(name == null || name == ""){
-		alert("You must give a name to your pool");
-		return false;
-	}else if(parseInt(yyyy) > parseInt(year)){
-		alert("You can't choose a date that has already passed");
-		return false;				
-	}else {	
-		location.refresh(true);				
-		return true;			
-	}
+
 }
 	
 
@@ -94,23 +87,22 @@ function validateDatos(){
 </div>
 
 <div class="firstStep">		
-<form action="../CreatePoolServlet" method="post" onsubmit="return validateDatos()">	
+<form name="make_pool_form" action="../CreatePoolServlet" method="post" id="pool_form" onsubmit="return validateDatos()" >	<!-- onsubmit="return validateDatos()"--> 
 <h3>Give a name to your pool</h3>
 <input type="text" name="pool_name" id="pool_name" required> <br> <br>
 <input type="hidden" name="user_id" id="user_id" value="<%=loginUser.getId()%>">
 
 <h3>Select the league for you pool</h3>
-<input type="radio" name="select_league_button" value="uefa" id="select_league_button" required>  UEFA <br>
-<input type="radio" name="select_league_button" value="bundesliga"id="select_league_button" > Bundesliga <br>
-<input type="radio" name="select_league_button" value="mls" id="select_league_button"> MLS <br>
-<input type="radio" name="select_league_button" value="mundial" id="select_league_button"> Mundial <br>
-<input type="radio" name="select_league_button" value="primeradivisionmexicana" id="select_league_button"> Primera Division Mexicana <br>	
+<input type="radio" name="select_league_button" value="UEFA Champions League" id="select_league_button" required>  UEFA Champions League <br>
+<input type="radio" name="select_league_button" value="Bundesliga"id="select_league_button" > Bundesliga <br>
+<input type="radio" name="select_league_button" value="Liga MX" id="select_league_button"> Liga MX <br>
+<input type="radio" name="select_league_button" value="FIFA World Cup" id="select_league_button"> FIFA World Cup <br>
 <br><br>
 
 <h3>Set the Pool's preferences</h3>
 <h4> Set maximum and minimum number of participants (must be between 2 and 99)</h4>
 	Minimum: <input type="number" name="minimum_participants" min=2 max=98 placeholder="2"  id="minimum_participants" required>
-	Maximum: <input type="number" name="maximum_participants" min=2 max=99 placeholder="99" id="maximum_participants"required>
+	Maximum: <input type="number" name="maximum_participants" min=2 max=99 placeholder="99" id="maximum_participants" required>
 <br> <br>
 
 <h4> Set the pool's price in mexican pesos (minimum required: $5.00))</h4>
@@ -118,9 +110,9 @@ function validateDatos(){
 <br> <br>
 
 <h4>Pick your pool mode:</h4>
-<input type="radio" name="select_pool_mode_button" value="game" id="select_pool_mode_button" required> Game mode <br> 
-<input type="radio" name="select_pool_mode_button" value="round" id="select_pool_mode_button" > Round mode <br> 
-<input type="radio" name="select_pool_mode_button" value="league" id="select_pool_mode_button" > League mode <br>
+<input type="radio" name="select_pool_mode_button" value="Game" id="select_pool_mode_button" required> Game mode <br> 
+<input type="radio" name="select_pool_mode_button" value="Round" id="select_pool_mode_button" > Round mode <br> 
+<input type="radio" name="select_pool_mode_button" value="League" id="select_pool_mode_button" > League mode <br>
 
 <h4> Select a starting date for the pool))</h4>
 	Starting Date: <input type="date" name="start_date" pattern="\d{1,2}/\d{1,2}/\d{4}"  id="start_date" required>
@@ -132,7 +124,7 @@ function validateDatos(){
 <br> <br>			
 
 <h5> Have you filled all blanks? </h5>
-	<input type="submit" value="Submit" name="create_pool_button">				
+	<input type="submit" value="Submit">				
 
 </form>
 	

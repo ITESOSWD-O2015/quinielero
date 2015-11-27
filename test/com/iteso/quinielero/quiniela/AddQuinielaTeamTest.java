@@ -36,7 +36,7 @@ public class AddQuinielaTeamTest {
 
 	@Test
 	public void testAddOneTeam() {
-		Quiniela quiniela = new Quiniela();
+		Quiniela quiniela = new Quiniela("quiniela");
 		when(team2.toString()).thenReturn("Equipo 2");
 		quiniela.addTeam(existingTeams.get(2));
 		assertEquals("Quiniela de tipo default con los equipos: Equipo 2 ", quiniela.toString());
@@ -44,7 +44,7 @@ public class AddQuinielaTeamTest {
 
 	@Test
 	public void testAddAllTeam() {
-		Quiniela quiniela = new Quiniela();
+		Quiniela quiniela = new Quiniela("quiniela");
 		when(team0.toString()).thenReturn("Equipo 0");
 		when(team1.toString()).thenReturn("Equipo 1");
 		when(team2.toString()).thenReturn("Equipo 2");

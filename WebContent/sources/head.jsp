@@ -11,7 +11,8 @@
 				<li><a href='#'>View Pools</a></li>
 				<li><a href='#'>View Stats</a></li>
 				<li><a href="http://localhost:8080/Quinielero/pool/organize_pool.jsp">Organize Pool</a></li>
-				<li><a href='#'>Edit Pool</a></li>				
+				<li><a href='#'>Edit Pool</a></li>	
+				<li><a href="http://localhost:8080/Quinielero/pool/delete_pool.jsp">Delete Pool</a></li>				
 			</ul>
 		</li>
 		<li><a href="http://localhost:8080/Quinielero/profile/profile.jsp">Profile</a>

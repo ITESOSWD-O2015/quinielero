@@ -15,6 +15,7 @@ import com.iteso.quinielero.quiniela.Quiniela;
 @WebServlet("/ModoServlet")
 public class ModoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private String name = "";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -40,7 +41,7 @@ public class ModoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Quiniela quiniela = new Quiniela();
+		Quiniela quiniela = new Quiniela(name);
 		quiniela.setPoolMode(request.getParameter("select_pool_mode_button"));
 		response.getWriter().println("You have successfully created a " + quiniela.getPoolMode() + " mode quiniela");
 	}
