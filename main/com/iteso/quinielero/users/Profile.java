@@ -4,10 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import observer.copy.iObserver;
+import observer.copy.iSubject;
+
 import com.iteso.quinielero.mysql.DatabaseConnection;
 import com.iteso.quinielero.quiniela.Quiniela;
 
-public class Profile {
+public class Profile {/*implements iObserver {*/
 	String id;
 	String username;
 	String firstName;
@@ -134,5 +137,19 @@ public class Profile {
 		this.activeQuinielas = activeQuinielas;
 	}
 	
+	//////////////////////////
+	/*
+	  public Profile(iSubject quiniela, String userid){
+	        iSubject scoresData1 = quiniela;
+	        this.id = ;
+	        scoresData1.registerObserver(this);
+	    }
+	  
+	@Override
+	public void boardUpdate(String title, String description) {
+		// TODO Auto-generated method stub
+		
+	}
+	*/
 	
 }

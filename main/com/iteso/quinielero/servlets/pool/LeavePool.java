@@ -1,12 +1,16 @@
 package com.iteso.quinielero.servlets.pool;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.iteso.quinielero.mysql.DatabaseConnection;
 
 
 /**
@@ -44,9 +48,19 @@ public class LeavePool extends HttpServlet {
 		 * y no sabemos el usuario con este diseño
 		 */
 		
-		String name_quiniela	  = request.getParameter("id_quiniela");
-		response.getWriter().println("You are leaving from " + name_quiniela + " pool");
+	//	String name_quiniela	  = request.getParameter("id_quiniela");
+	//	response.getWriter().println("You are leaving from " + name_quiniela + " pool");
 		
+		int idUser = Integer.parseInt(request.getParameter("user_id"));
+		
+		
+try {			
+			
+			DatabaseConnection.updateStatement("DELETE FROM UserQuiniela WHERE idUser='" + idUser + "'");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

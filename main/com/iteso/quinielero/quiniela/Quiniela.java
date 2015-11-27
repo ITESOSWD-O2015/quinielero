@@ -3,9 +3,12 @@ package com.iteso.quinielero.quiniela;
 import java.util.ArrayList;
 import java.util.List;
 
+import observer.copy.iObserver;
+import observer.copy.iSubject;
+
 import com.iteso.quinielero.users.Profile;
 
-public class Quiniela {
+public class Quiniela implements iSubject {
 	private String league;
 
 	private int maximum_participants;
@@ -27,13 +30,21 @@ public class Quiniela {
 	private ArrayList<Profile> pending_people = new ArrayList<Profile>();
 	private ArrayList<Profile> participants = new ArrayList<Profile>();
 
+	
+	private final ArrayList observers;
+	private String notification_title;
+	private String notification_description;
+	
+	
 	public Quiniela() { /// UN CONSTRUCTOR
 		this.type = "default";
 		teams = new ArrayList<Team>();
+		observers = new ArrayList();
 	}
 
 	public Quiniela(String name) { ///// DOS CONSTRUCTORES???
 		setName(name);
+		observers = new ArrayList();
 	}
 
 	public void addTeam(Team team) {
@@ -151,4 +162,27 @@ public class Quiniela {
 		pending_people.remove(profile);
 		participants.add(profile);
 	}
+
+	@Override
+	public void registerObserver(iObserver observer) {
+		observers.add(observer);
+	}
+
+	@Override
+	public void removeObserver(iObserver observer) {
+		// TODO Auto-generated method stub
+		observers.remove(observers.indexOf(observer));
+	}
+
+	@Override
+	public void notifyObservers() {
+		  for (Object observer1 : observers) {
+	            iObserver observer = (iObserver) observer1;
+	            observer.boardUpdate(this.notification_title, this.notification_description);
+	        }
+		
+	}
+	
+	
+	
 }

@@ -4,7 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link href="../sources/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+<script type="text/javascript" src="sources/scripts.js" ></script>
+<title>Notifications</title>
 </head>
 <body>
 
