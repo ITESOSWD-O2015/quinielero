@@ -38,10 +38,13 @@ if (cookies != null) {
 <script>
 function validateDatos(){	
 	
-	var maximum = document.forms["make_pool_form"]["maximum_participants"].value;
-	var minimum = document.forms["make_pool_form"]["minimum_participants"].value;
+	var maximumS = document.forms["make_pool_form"]["maximum_participants"].value;
+	var minimumS = parseInt(document.forms["make_pool_form"]["minimum_participants"].value);
 	var name    = document.forms["make_pool_form"]["pool_name"].value;
 	
+	
+	var maximum = parseInt(maximumS);
+	var minimum = parseInt(minimumS);	
 	var nameAux = name.replace(" ","");
 	
 	alert("LEYENDO DATOS DE QUINIELA");

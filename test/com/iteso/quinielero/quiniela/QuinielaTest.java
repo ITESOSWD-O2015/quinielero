@@ -1,9 +1,7 @@
 package com.iteso.quinielero.quiniela;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 import com.iteso.quinielero.quiniela.Quiniela;
 
 public class QuinielaTest {
@@ -35,24 +33,24 @@ public class QuinielaTest {
 	public void setLeague() {
 		name = "quiniela";
 		quiniela = new Quiniela(name);
-		quiniela.setLeague("UEFA");
-		assertEquals("UEFA", quiniela.getLeague());
+		quiniela.setLeagueName("UEFA");
+		assertEquals("UEFA", quiniela.getLeagueName());
 	}
 
 	@Test
 	public void testLeagueError() {
 		name = "quiniela";
 		quiniela = new Quiniela(name);
-		quiniela.setLeague("");
-		assertEquals("ERROR", quiniela.getLeague());
+		quiniela.setLeagueName("");
+		assertEquals("ERROR", quiniela.getLeagueName());
 	}
 
 	@Test
 	public void testLeagueNull() {
 		name = "quiniela";
 		quiniela = new Quiniela(name);
-		quiniela.setLeague(null);
-		assertEquals("ERROR", quiniela.getLeague());
+		quiniela.setLeagueName(null);
+		assertEquals("ERROR", quiniela.getLeagueName());
 	}
 
 	@Test

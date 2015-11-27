@@ -10,13 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.iteso.quinielero.mysql.DatabaseConnection;
 import com.iteso.quinielero.quiniela.Quiniela;
 
-import com.iteso.quinielero.users.Profile;
-import com.mysql.*;
-import com.mysql.jdbc.*;
 
 /**
  * Servlet implementation class CreatePoolServlet
