@@ -38,7 +38,8 @@ public class DatabaseConnection {
         // Create a new DataSource (MySQL specifically)
         // and provide the relevant information to be used by Tomcat.
         database = new MysqlDataSource();
-        database.setUrl("jdbc:mysql://db4free.net:3306/quinielero");
+        //jdbc:oracle:thin:@//myHost:1521/service_name
+        database.setUrl("jdbc:mysql://http://db4free.net:3306/quinielero");
         database.setUser("root");
         database.setPassword("softwaredesign");
         connect = database.getConnection();
