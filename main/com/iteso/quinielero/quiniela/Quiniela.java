@@ -5,27 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import observer.copy.iObserver;
-import observer.copy.iSubject;
 
 import com.iteso.quinielero.users.Profile;
 
-<<<<<<< HEAD
-public class Quiniela implements iSubject {
-	private String league;
-
-	private int maximum_participants;
-
-	private int minimum_participants;
-
-	private String name;
-
-=======
 public class Quiniela {
 	
 	private String start_date;
 	private String leagueName;
->>>>>>> e70824267952ea9c7e6e6c45a8aa5891ca261cc0
 	private String poolmode;
 	private String name;
 	private double pools_price;
@@ -38,25 +24,10 @@ public class Quiniela {
 	private ArrayList<Profile> pending_people = new ArrayList<Profile>();
 	private ArrayList<Profile> participants = new ArrayList<Profile>();
 
-<<<<<<< HEAD
 	
-	private final ArrayList observers;
-	private String notification_title;
-	private String notification_description;
-	
-	
-	public Quiniela() { /// UN CONSTRUCTOR
-		this.type = "default";
-		teams = new ArrayList<Team>();
-		observers = new ArrayList();
-	}
-
-=======
->>>>>>> e70824267952ea9c7e6e6c45a8aa5891ca261cc0
 	public Quiniela(String name) { ///// DOS CONSTRUCTORES???
 		teams = new ArrayList<Team>();
 		setName(name);
-		observers = new ArrayList();
 	}
 
 	public String getLeagueName(){return leagueName;}
@@ -163,31 +134,9 @@ public class Quiniela {
 		pending_people.remove(profile);
 		participants.add(profile);
 	}
-
-<<<<<<< HEAD
-	@Override
-	public void registerObserver(iObserver observer) {
-		observers.add(observer);
-	}
-
-	@Override
-	public void removeObserver(iObserver observer) {
-		// TODO Auto-generated method stub
-		observers.remove(observers.indexOf(observer));
-	}
-
-	@Override
-	public void notifyObservers() {
-		  for (Object observer1 : observers) {
-	            iObserver observer = (iObserver) observer1;
-	            observer.boardUpdate(this.notification_title, this.notification_description);
-	        }
-		
-	}
 	
 	
 	
-=======
 	
 	public void setLeagueId(int leagueId) {		
 		if(leagueId>0)
@@ -211,5 +160,4 @@ public class Quiniela {
 		else
 			this.creatorId = -1;
 	}
->>>>>>> e70824267952ea9c7e6e6c45a8aa5891ca261cc0
 }
