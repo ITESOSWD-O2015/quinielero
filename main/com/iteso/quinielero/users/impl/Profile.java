@@ -1,13 +1,14 @@
-package com.iteso.quinielero.users;
+package com.iteso.quinielero.users.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.iteso.quinielero.mysql.DatabaseConnection;
-import com.iteso.quinielero.quiniela.Quiniela;
+import com.iteso.quinielero.quiniela.impl.Quiniela;
+import com.iteso.quinielero.users.iUser;
 
-public class Profile {/*implements iObserver {*/
+public class Profile implements iUser {
 	String id;
 	String username;
 	String firstName;
@@ -132,5 +133,13 @@ public class Profile {/*implements iObserver {*/
 	}
 	public void setActiveQuinielas(ArrayList<Quiniela> activeQuinielas) {
 		this.activeQuinielas = activeQuinielas;
+	}
+	@Override
+	public void update(String notification, String notificationTitle) {
+		try {
+			DatabaseConnection.updateStatement("INSERT INTO Notification (idUser, title, description) VALUES ('" + getId() + "', '" + notificationTitle + "', '" + notification + "')");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

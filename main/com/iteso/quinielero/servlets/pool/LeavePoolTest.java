@@ -2,8 +2,8 @@ package com.iteso.quinielero.servlets.pool;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import com.iteso.quinielero.quiniela.Quiniela;
-import com.iteso.quinielero.users.Profile;
+import com.iteso.quinielero.quiniela.impl.Quiniela;
+import com.iteso.quinielero.users.impl.Profile;
 
 public class LeavePoolTest {
 	Profile profile;

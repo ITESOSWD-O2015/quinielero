@@ -1,8 +1,9 @@
-package com.iteso.quinielero.quiniela;
+package com.iteso.quinielero.quiniela.impl;
 
 import static org.junit.Assert.*;
 import org.junit.*;
-import com.iteso.quinielero.quiniela.Quiniela;
+
+import com.iteso.quinielero.quiniela.impl.Quiniela;
 
 public class QuinielaTest {
 	String name;

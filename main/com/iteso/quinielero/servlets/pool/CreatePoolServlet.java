@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.iteso.quinielero.mysql.DatabaseConnection;
-import com.iteso.quinielero.quiniela.Quiniela;
+import com.iteso.quinielero.quiniela.impl.Quiniela;
 
 
 /**

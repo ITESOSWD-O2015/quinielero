@@ -11,9 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iteso.quinielero.mysql.DatabaseConnection;
-import com.iteso.quinielero.quiniela.Quiniela;
-
-import com.iteso.quinielero.users.Profile;
+import com.iteso.quinielero.quiniela.impl.Quiniela;
+import com.iteso.quinielero.users.impl.Profile;
 import com.mysql.*;
 import com.mysql.jdbc.*;
 
