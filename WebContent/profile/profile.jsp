@@ -1,4 +1,4 @@
-<%@ page import="com.iteso.quinielero.users.Profile"%>
+<%@ page import="com.iteso.quinielero.users.impl.Profile"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <% 
