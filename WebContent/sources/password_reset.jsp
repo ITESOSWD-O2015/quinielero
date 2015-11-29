@@ -4,39 +4,50 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+<script type="text/javascript" src="scripts.js" ></script>
 <title>Quinielero | Password reset</title>
+
 <script>
-function checkEmail(){
-	var email = document.getElementById("email_input").value;
-	if (email != "geovani.serrano.17@gmail.com") {
-		alert("Unavailable e-mail!");
-		document.getElementbyId("email_input").focus();
+function validatePasswords() {
+	var password = document.getElementById("password").value;
+	var confirmPassword = document.getElementById("confirmPassword").value;
+	
+	if (password == confirmPassword) {
+		return true;
+	} else {
+		alert("Passwords are not equals");
+		document.getElementById("confirmPassword").focus();
+		return false;
 	}
 }
 </script>
 </head>
 <body>
 
-<div align="center">
-<h1>Quinielero</h1>
-<br />
-Retrieve your account
-<br />
-<form action="../PasswordResetServlet" method="post">
-<table>
-<tr>
-	<td>Registered e-mail: </td>
-	<td><input type="email" name="email" placeholder="Email Address" id="email_input" /></td>"
-</tr>
-<tr>
-	<td>New password: </td>
-	<td><input type="password" name="password" placeholder="New Password" /></td>
-</tr>
-<tr>
-	<td colspan="2"><input type="submit" value="Send" /></td>
-</tr>
+<div id="login_div">
+<form action="../PasswordResetServlet" method="post" onsubmit="return validatePasswords()">
+<table width="100%" cellspacing="15">
+	<tr>
+		<td><h1>Quinielero</h1></td>
+	</tr>
+	<tr>
+		<td>Enter your username and new password</td>
+	</tr>
+	<tr>
+		<td><input type="text" name="username" id="username" placeholder="Username" class="inputLogin" required></td>
+	</tr>
+	<tr>
+		<td><input type="password" name="password" id="password" placeholder="Password" class="inputLogin" required></td>
+	</tr>
+	<tr>
+		<td><input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password" class="inputLogin" required></td>
+	</tr>
+	<tr>
+		<td><input type="submit" value="Enter"></td>
+	</tr>
 </table>
-*We will send you an email to your registered e-mail account
 </form>
 </div>
 

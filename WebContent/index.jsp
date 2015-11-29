@@ -22,7 +22,7 @@ if (session.getAttribute("idUser") == null) {
 
 <body>
 <div id="login_div">
-<form action="LoginServlet" method="post" onsubmit="return valideLogin();">
+<form action="LoginServlet" method="post">
 <table width="100%" cellspacing="15">
 	<tr>
 		<td><h1>Quinielero</h1></td>
