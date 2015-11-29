@@ -1,5 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%@ page import="com.iteso.quinielero.users.Profile"%>
+<% 
+// Allow access only if session exists
+String user = null;
+if (session.getAttribute("idUser") == null) {
+  	response.sendRedirect("../index.jsp");
+} else {
+	user = (String) session.getAttribute("idUser");
+}
+String idUser = null;
+Profile loginUser = null;
+Cookie[] cookies = request.getCookies();
+if (cookies != null) {
+	for(Cookie cookie : cookies){
+		if("idUser".equals(cookie.getName())){
+	        idUser = cookie.getValue();
+	    }
+	}
+	if (idUser.equals(null)) {
+		response.sendRedirect("../index.jsp");
+	} else {
+		loginUser = new Profile(idUser);
+	}
+}
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,13 +45,15 @@
 	}
 </script>
 </head>
-<body style="background-color: #bf5c71">
+<body style="background-color: white">
+<jsp:include page="../sources/head.jsp" />
 	<div class="mainLogo">
 		<h1>
 			<a href="index.html">Quinielero</a>
 		</h1>
 	</div>
-	<form>
+	
+	<form action="" method="post">
 		<table align="center">
 
 			<tr>
@@ -38,6 +67,11 @@
 					<p>Juan Lopez</p>
 					<p id="demo"></p>
 				</td>
+				
+				<td> Which quiniela?<input type="number" name="IdQuinielaToInvite"  placeholder="1"  
+					   id="IdQuinielaToInvite" required>
+				</td>
+				
 				<td><input type="text" id="participante" name="participant"
 					align="top"></td>
 			</tr>
@@ -56,7 +90,7 @@
 			</tr>
 		</table>
 	</form>
-
+	
 
 
 
