@@ -1,5 +1,6 @@
 package com.iteso.quinielero.servlets.user;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
