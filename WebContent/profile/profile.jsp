@@ -136,6 +136,9 @@ if (cookies != null) {
 				<input type="submit" value="Change Profile Picture">
 			</form>
 		</td>
+		<td>
+			<a href="notifications.jsp">Notifications</a>
+		</td>
 	</tr>
 </table>	
 </div>

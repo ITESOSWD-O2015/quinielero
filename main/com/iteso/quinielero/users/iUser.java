@@ -34,6 +34,8 @@ public interface iUser {
 	public ArrayList<Quiniela> getCreatedQuinielas();
 	public void setCreatedQuinielas(ArrayList<Quiniela> createdQuinielas);
 	public ArrayList<Quiniela> getActiveQuinielas();
+	public ArrayList<iNotification> getNotifications();
+	public void setNotifications();
 	public void setActiveQuinielas(ArrayList<Quiniela> activeQuinielas);
 	public void update(String notification, String notificationTitle);
 	

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import com.iteso.quinielero.mysql.DatabaseConnection;
 import com.iteso.quinielero.quiniela.impl.Quiniela;
+import com.iteso.quinielero.users.iNotification;
 import com.iteso.quinielero.users.iUser;
 
 public class Profile implements iUser {
@@ -24,6 +25,7 @@ public class Profile implements iUser {
 	String memberSince;
 	ArrayList<Quiniela> createdQuinielas = new ArrayList<Quiniela>();
 	ArrayList<Quiniela> activeQuinielas = new ArrayList<Quiniela>();
+	ArrayList<iNotification> notifications = new ArrayList<iNotification>();
 	
 	public Profile(String id) throws SQLException {
 		ResultSet resultSet = null;
@@ -140,5 +142,27 @@ public class Profile implements iUser {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	@Override
+	public ArrayList<iNotification> getNotifications() {
+		return notifications;
+	}
+	@Override
+	public void setNotifications() {
+		iNotification notification;
+		try {
+			ResultSet resultSet = DatabaseConnection.queryStatement("SELECT * FROM Notification WHERE idUser = '" + getId() + "'");
+			do {
+				notification = new QuinielaNotification();
+				notification.setIdUser(resultSet.getString("iduser"));
+				notification.setTitle(resultSet.getString("title"));
+				notification.setDescription(resultSet.getString("description"));
+				
+				notifications.add(notification);
+			} while (resultSet.next());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
