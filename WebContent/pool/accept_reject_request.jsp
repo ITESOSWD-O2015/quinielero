@@ -42,7 +42,7 @@
 	<%
 		Quiniela myQuinielaCreated = new Quiniela("Champinions League final stage");
 		myQuinielaCreated.setPoolMode("League mode");
-		myQuinielaCreated.setLeague("Champinions League");
+		myQuinielaCreated.setLeagueName("Champinions League");
 		myQuinielaCreated.setStart_date("16/02/16");
 
 		Profile profile1 = new Profile("Hugol", "Hugo", "Godínez");

@@ -1,4 +1,4 @@
-<%@page import="com.iteso.quinielero.users.Profile"%>
+<%@page import="com.iteso.quinielero.users.impl.Profile"%>
 <%@ page
 	language="java"
 	contentType="text/html; charset=ISO-8859-1"
@@ -31,7 +31,7 @@
 <title>My pools</title>
 </head>
 <body>
-	<%@ page import="com.iteso.quinielero.quiniela.Quiniela"%>
+	<%@ page import="com.iteso.quinielero.quiniela.impl.Quiniela"%>
 	<%@ page import="com.iteso.quinielero.quiniela.Team"%>
 	<%@ page import="java.util.List"%>
 	<%@ page import="java.util.ArrayList"%>
@@ -39,17 +39,17 @@
 	<%
 		Quiniela myQuinielaCreated = new Quiniela("Champinions League final stage");
 		myQuinielaCreated.setPoolMode("League mode");
-		myQuinielaCreated.setLeague("Champinions League");
+		myQuinielaCreated.setLeagueName("Champinions League");
 		myQuinielaCreated.setStart_date("16/02/16");
 
 		Quiniela myQuinielaPart1 = new Quiniela("Liguilla MX");
 		myQuinielaPart1.setPoolMode("League mode");
-		myQuinielaPart1.setLeague("Liga Bancomer MX");
+		myQuinielaPart1.setLeagueName("Liga Bancomer MX");
 		myQuinielaPart1.setStart_date("25/11/15");
 
 		Quiniela myQuinielaPart2 = new Quiniela("J17");
 		myQuinielaPart2.setPoolMode("Round mode");
-		myQuinielaPart2.setLeague("Liga Bancomer MX");
+		myQuinielaPart2.setLeagueName("Liga Bancomer MX");
 		myQuinielaPart2.setStart_date("20/11/12");
 
 		Profile profile = new Profile();
@@ -75,7 +75,7 @@
 				for (Quiniela actualQuiniela : profile.getCreatedQuinielas()) {
 					String toHTML = "<tr><td>" + actualQuiniela.getName() + "</td>";
 					toHTML = toHTML + "<td>" + actualQuiniela.getPoolMode() + "</td>";
-					toHTML = toHTML + "<td>" + actualQuiniela.getLeague() + "</td>";
+					toHTML = toHTML + "<td>" + actualQuiniela.getLeagueName() + "</td>";
 					toHTML = toHTML + "<td>" + actualQuiniela.getStart_date() + "</td></tr>";
 					out.println(String.valueOf(toHTML));
 				}
@@ -98,7 +98,7 @@
 				for (Quiniela actualQuiniela : profile.getActiveQuinielas()) {
 					String toHTML = "<tr><td>" + actualQuiniela.getName() + "</td>";
 					toHTML = toHTML + "<td>" + actualQuiniela.getPoolMode() + "</td>";
-					toHTML = toHTML + "<td>" + actualQuiniela.getLeague() + "</td>";
+					toHTML = toHTML + "<td>" + actualQuiniela.getLeagueName() + "</td>";
 					toHTML = toHTML + "<td>" + actualQuiniela.getStart_date() + "</td></tr>";
 					out.println(String.valueOf(toHTML));
 				}
