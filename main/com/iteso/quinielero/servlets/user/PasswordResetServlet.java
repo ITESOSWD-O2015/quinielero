@@ -44,7 +44,7 @@ public class PasswordResetServlet extends HttpServlet {
 		
 		try {
 			resultSet = DatabaseConnection.queryStatement("SELECT * FROM User WHERE username = '" + username + "'");
-			if(resultSet.next()){
+			if(resultSet != null){
 				DatabaseConnection.updateStatement("UPDATE User SET password = '" + password + "' WHERE idUser = '" + resultSet.getString("idUser") + "'");
 			} else {
 				System.out.println("Username not found");

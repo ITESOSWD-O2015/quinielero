@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		try {
 			resultSet = DatabaseConnection.queryStatement("SELECT * FROM User WHERE username = '" + username + "' AND password = '" + password + "'");
-			if (resultSet.next()) {
+			if (resultSet != null) {
 				do {
 					HttpSession session = request.getSession();
 					session.setAttribute("idUser", resultSet.getString("idUser"));

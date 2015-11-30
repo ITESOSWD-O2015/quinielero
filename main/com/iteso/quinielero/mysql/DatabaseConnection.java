@@ -28,7 +28,11 @@ public class DatabaseConnection {
         ResultSet resultSet = statement.executeQuery(query);
         
         //Return query
-		return resultSet;
+        if(resultSet.next()) {
+        	return resultSet;
+        } else {
+        	return null;
+        }
     }
     public static void updateStatement(String query) throws SQLException {
     	  MysqlDataSource database = null;

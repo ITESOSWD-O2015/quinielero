@@ -28,7 +28,6 @@ public class Profile implements iUser {
 	public Profile(String id) throws SQLException {
 		ResultSet resultSet = null;
 		resultSet = DatabaseConnection.queryStatement("SELECT * FROM User WHERE idUser = '" + id + "'");
-		resultSet.next();
 		
 		setId(resultSet.getString("idUser"));
 		setFirstName(resultSet.getString("firstName"));
