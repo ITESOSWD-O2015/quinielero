@@ -2,6 +2,7 @@
 
 * {
 	font-family: Lato, Arial;	
+	
 }
 
 h1 {
@@ -43,15 +44,25 @@ nav ul {
 	background: #ffffff;  
 	list-style: none;
 	position: relative;
-	display: inline-table;
+	display: table;
+	width: 100%;
 }
 nav ul:after {
 	content: ""; 
 	clear: both; 
 	display: block;
 }
+
+@media only screen and (max-width : 400px) {
+    ul li { 
+        display:block;
+        float:none;
+    }
+}
+
 nav ul li {
 	float: left;
+	position: relative;
 }
 nav ul li:hover {
 	background: #96e990;
@@ -83,3 +94,5 @@ nav ul ul li a {
 nav ul ul li a:hover {
 	background: #4b545f;
 }
+
+

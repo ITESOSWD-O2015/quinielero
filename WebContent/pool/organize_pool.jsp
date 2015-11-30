@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.iteso.quinielero.users.Profile"%>
+<%@ page import="com.iteso.quinielero.users.impl.Profile"%>
 <% 
 // Allow access only if session exists
 String user = null;
@@ -25,7 +25,6 @@ if (cookies != null) {
 	}
 	
 }
-
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -87,7 +86,7 @@ function validateDatos(){
 </div>
 
 <div class="firstStep">		
-<form name="make_pool_form" action="../CreatePoolServlet" method="post" id="pool_form" onsubmit="return validateDatos()" >	<!-- onsubmit="return validateDatos()"--> 
+<form name="make_pool_form" action="../CreatePoolServlet" method="post" id="pool_form" onsubmit="return validateDatos()" > 
 <h3>Give a name to your pool</h3>
 <input type="text" name="pool_name" id="pool_name" required> <br> <br>
 <input type="hidden" name="user_id" id="user_id" value="<%=loginUser.getId()%>">
