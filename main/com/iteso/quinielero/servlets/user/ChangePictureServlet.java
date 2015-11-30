@@ -64,12 +64,6 @@ public class ChangePictureServlet extends HttpServlet {
 			e.printStackTrace();
 			response.getWriter().println("Error in insertion");
 		}
-		
-		
-		
-		
-		
-		
 	}
 
 }
