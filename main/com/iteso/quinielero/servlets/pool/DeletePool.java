@@ -1,7 +1,6 @@
 package com.iteso.quinielero.servlets.pool;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -9,12 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.iteso.quinielero.mysql.DatabaseConnection;
-import com.iteso.quinielero.quiniela.impl.Quiniela;
-import com.iteso.quinielero.users.impl.Profile;
-import com.mysql.*;
-import com.mysql.jdbc.*;
 
 @WebServlet("/DeletePool")
 public class DeletePool extends HttpServlet {

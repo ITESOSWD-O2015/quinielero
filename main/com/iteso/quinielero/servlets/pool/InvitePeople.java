@@ -43,12 +43,10 @@ public class InvitePeople extends HttpServlet {
 		String User_email = request.getParameter("participant");
 		
 		//Get the name of the Quiniela
-		String queryQuinielaName = " SELECT `name` FROM `Quiniela` WHERE `idQuiniela` = '" + idQuinielaToInvite +"'";
 		String queryEmailUser = " SELECT `idUser` FROM `User` WHERE `username` =  '" + User_email +"'";
 		
 		String dbInsertion = "";
 		String dbValuesToInsert = "";
-		String dbValueID = "";
 		int iduser = 0;
 		try {
 			ResultSet rs = DatabaseConnection.queryStatement(queryEmailUser);

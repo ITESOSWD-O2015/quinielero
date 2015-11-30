@@ -130,17 +130,9 @@ public class Quiniela implements iQuiniela{
 
 		start_date = "ERROR";
 
-		if (Character.isDigit(sd.charAt(0)))
-			if (Character.isDigit(sd.charAt(1)))
-				if (Character.isDigit(sd.charAt(2)))
-					if (Character.isDigit(sd.charAt(3)))
-						if (sd.charAt(4) == '-')
-							if (Character.isDigit(sd.charAt(5)))
-								if (Character.isDigit(sd.charAt(6)))
-									if (sd.charAt(7) == '-')
-										if (Character.isDigit(sd.charAt(8)))
-											if (Character.isDigit(sd.charAt(9)))
-												start_date = sd;
+		if ((Character.isDigit(sd.charAt(0))) && (Character.isDigit(sd.charAt(1))) && (Character.isDigit(sd.charAt(2))) && (Character.isDigit(sd.charAt(3)))
+		    && (sd.charAt(4) == '-') && (Character.isDigit(sd.charAt(5))) && (Character.isDigit(sd.charAt(6))) && (sd.charAt(7) == '-') && (Character.isDigit(sd.charAt(8)))
+			&& (Character.isDigit(sd.charAt(9)))) start_date = sd;
 
 	}
 

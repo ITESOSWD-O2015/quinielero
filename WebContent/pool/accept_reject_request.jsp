@@ -34,8 +34,8 @@
 <title>Request to your pool</title>
 </head>
 <body>
-	<%@ page import="com.iteso.quinielero.quiniela.Quiniela"%>
-	<%@ page import="com.iteso.quinielero.users.Profile"%>
+	<%@ page import="com.iteso.quinielero.quiniela.impl.Quiniela"%>
+	<%@ page import="com.iteso.quinielero.users.impl.Profile"%>
 	<%@ page import="java.util.List"%>
 	<%@ page import="java.util.ArrayList"%>
 	<%@ page import="java.util.List"%>

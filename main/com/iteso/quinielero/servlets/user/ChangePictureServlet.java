@@ -1,13 +1,8 @@
 package com.iteso.quinielero.servlets.user;
 
-import java.awt.Image;
 import java.io.*;
-import java.sql.*;
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

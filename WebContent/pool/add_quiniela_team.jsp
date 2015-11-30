@@ -48,7 +48,7 @@
 <title>Add team to your Quiniela</title>
 </head>
 <body>
-	<%@ page import="com.iteso.quinielero.quiniela.Quiniela"%>
+	<%@ page import="com.iteso.quinielero.quiniela.impl.Quiniela"%>
 	<%@ page import="com.iteso.quinielero.quiniela.Team"%>
 	<%@ page import="java.util.List"%>
 	<%@ page import="java.util.ArrayList"%>
