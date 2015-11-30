@@ -11,31 +11,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iteso.quinielero.mysql.DatabaseConnection;
-import com.iteso.quinielero.quiniela.Quiniela;
 
-import com.iteso.quinielero.users.Profile;
-import com.mysql.*;
-import com.mysql.jdbc.*;
-
+/**
+ * Servlet implementation class InvitePeople
+ */
 @WebServlet("/InvitePeople")
-public class InvitePeople extends HttpServlet{
+public class InvitePeople extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public InvitePeople() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	public InvitePeople(){
-		super();
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException{
-		
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Data inserted by the user
 		int idQuinielaToInvite = Integer.parseInt(request.getParameter("IdQuinielaToInvite"));
-		String   User_email = request.getParameter("participant");
+		String User_email = request.getParameter("participant");
 		
 		//Get the name of the Quiniela
 		String queryQuinielaName = " SELECT `name` FROM `Quiniela` WHERE `idQuiniela` = '" + idQuinielaToInvite +"'";
@@ -63,10 +68,5 @@ public class InvitePeople extends HttpServlet{
 						e.printStackTrace();
 		}
 	}
+
 }
-
-
-
-
-
-
