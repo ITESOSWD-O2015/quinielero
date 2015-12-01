@@ -40,7 +40,7 @@ public class DeletePool extends HttpServlet {
 		
 		Quiniela quiniela = new Quiniela(idQuinielaByUser);
 		quiniela.setParticipants();
-		quiniela.notifyUsers("Quiniela deleted", "Quiniela deleted");
+		quiniela.notifyUsers("Quiniela "+ QuinielaNameToDelete + " deleted", "Quiniela deleted");
 		
 		
 		String dbInsertion = "";

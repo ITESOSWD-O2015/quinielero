@@ -52,7 +52,11 @@ for (iNotification notification : loginUser.getNotifications()) {
 
 %>
 </div>
-
+<form name="notification_form" action="../SendNotification" method="post" id="not_form" >
+<h3>Send a message to (all) your friends</h3>
+<input type="text" name="notificationsid" id="notificationsid"> <br> <br>
+<input type="submit" value="Submit">				
+</form>
 <a href="profile.jsp">Back</a>
 
 </body>

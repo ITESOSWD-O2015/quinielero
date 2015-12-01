@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.iteso.quinielero.mysql.DatabaseConnection;
+import com.iteso.quinielero.quiniela.impl.Quiniela;
 
 /**
  * Servlet implementation class InvitePeople
@@ -56,6 +57,11 @@ public class InvitePeople extends HttpServlet {
 			// TODO Auto-generated catch block
 						e.printStackTrace();
 		}
+		
+		Quiniela quiniela = new Quiniela(idQuinielaToInvite);
+		quiniela.setParticipants();
+		quiniela.notifyUsers("Quiniela "+ idQuinielaToInvite + " has a new integrant. IDUser: " + iduser, "New friend invited to quiniela");
+		
 		
 		try{
 			dbValuesToInsert = "'" + idQuinielaToInvite + "','" + iduser + "'";
