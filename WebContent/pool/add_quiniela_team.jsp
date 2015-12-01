@@ -33,6 +33,7 @@
 	media="screen"
 	href="http://silviomoreto.github.io/bootstrap-select/stylesheets/bootstrap-select.css"
 >
+<link href="../sources/style.css" rel="stylesheet" type="text/css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
@@ -48,6 +49,8 @@
 <title>Add team to your Quiniela</title>
 </head>
 <body>
+
+<jsp:include page="../sources/head.jsp" />
 	<%@ page import="com.iteso.quinielero.quiniela.impl.Quiniela"%>
 	<%@ page import="com.iteso.quinielero.quiniela.Team"%>
 	<%@ page import="java.util.List"%>
@@ -55,7 +58,7 @@
 	<%@ page import="java.util.List"%>
 
 	<%
-		List<Team> existingTeams = new ArrayList<Team>();
+		/*List<Team> existingTeams = new ArrayList<Team>();
 		Team team0 = new Team("Equipo0", 0);
 		Team team1 = new Team("Equipo1", 1);
 		Team team2 = new Team("Equipo2", 2);
@@ -68,7 +71,7 @@
 		existingTeams.add(team3);
 		existingTeams.add(team4);
 		existingTeams.add(team5);
-		Quiniela quiniela = new Quiniela();
+		Quiniela quiniela = new Quiniela();*/
 	%>
 
 	<h3>Select a team to add</h3>
@@ -77,11 +80,11 @@
 		<p>
 			<select class="form-control">
 				<%
-					for (Team actualTeam : existingTeams) {
-						String toHTML = "<option data-icon=\"glyphicon-picture\">";
-						toHTML = toHTML + actualTeam.toString() + "</option>";
-						out.println(String.valueOf(toHTML));
-					}
+					//for (Team actualTeam : existingTeams) {
+						//String toHTML = "<option data-icon=\"glyphicon-picture\">";
+						//toHTML = toHTML + actualTeam.toString() + "</option>";
+						//out.println(String.valueOf(toHTML));
+					//}
 				%>
 			</select>
 			</p><button

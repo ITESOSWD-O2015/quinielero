@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.iteso.quinielero.mysql.DatabaseConnection;
+import com.iteso.quinielero.quiniela.iQuiniela;
 import com.iteso.quinielero.quiniela.impl.Quiniela;
 import com.iteso.quinielero.users.iNotification;
 import com.iteso.quinielero.users.iUser;
@@ -23,8 +24,8 @@ public class Profile implements iUser {
 	String phone;
 	String nickname;
 	String memberSince;
-	ArrayList<Quiniela> createdQuinielas = new ArrayList<Quiniela>();
-	ArrayList<Quiniela> activeQuinielas = new ArrayList<Quiniela>();
+	ArrayList<iQuiniela> createdQuinielas = new ArrayList<iQuiniela>();
+	ArrayList<iQuiniela> activeQuinielas = new ArrayList<iQuiniela>();
 	ArrayList<iNotification> notifications = new ArrayList<iNotification>();
 	
 	public Profile(String id) throws SQLException {
@@ -123,17 +124,46 @@ public class Profile implements iUser {
 	public void setMemberSince(String memberSince) {
 		this.memberSince = memberSince;
 	}
-	public ArrayList<Quiniela> getCreatedQuinielas() {
+	public ArrayList<iQuiniela> getCreatedQuinielas() {
 		return createdQuinielas;
 	}
-	public void setCreatedQuinielas(ArrayList<Quiniela> createdQuinielas) {
-		this.createdQuinielas = createdQuinielas;
+	public void setCreatedQuinielas() {
+		iQuiniela quiniela;
+		try {
+			ResultSet resultSet = DatabaseConnection.queryStatement("SELECT * FROM Quiniela, QuinielaType"
+																+ "WHERE Quiniela.idCreator = '" + getId() +"' "
+																	+ "AND QuinielaType.idQuinielaType = Quiniela.idQuinielaType");
+			do {
+				quiniela = new Quiniela(resultSet.getString("name"));
+				
+				quiniela.setPoolMode(resultSet.getString("name"));  
+				quiniela.setStart_date(resultSet.getString("beginDate")); 
+				createdQuinielas.add(quiniela);
+			} while (resultSet.next());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	public ArrayList<Quiniela> getActiveQuinielas() {
+	public ArrayList<iQuiniela> getActiveQuinielas() {
 		return activeQuinielas;
 	}
-	public void setActiveQuinielas(ArrayList<Quiniela> activeQuinielas) {
-		this.activeQuinielas = activeQuinielas;
+	public void setActiveQuinielas() {
+		iQuiniela quiniela;
+		try {
+			ResultSet resultSet = DatabaseConnection.queryStatement("SELECT * FROM Quiniela, UserQuiniela, QuinielaType, League"
+																+ "WHERE Quiniela.idquiniela = UserQuiniela.idQuiniela "
+																	+ "AND UserQuiniela.idUser = '" + getId() +"' "
+																	+ "AND QuinielaType.idQuinielaType = Quiniela.idQuinielaType");
+			do {
+				quiniela = new Quiniela(resultSet.getString("Quiniela.name"));
+				
+				quiniela.setPoolMode(resultSet.getString("QuinielaType.name"));  
+				quiniela.setStart_date(resultSet.getString("Quiniela.beginDate")); 
+				activeQuinielas.add((Quiniela) quiniela);
+			} while (resultSet.next());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	@Override
 	public void update(String notification, String notificationTitle) {
@@ -163,6 +193,86 @@ public class Profile implements iUser {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+	}
+	@Override
+	public void Id(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void Username(String username) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void FirstName(String firstName) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void LastName(String lastName) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void Street1(String street1) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void Street2(String street2) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void City(String city) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void State(String state) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void Country(String country) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void Zip(String zip) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void Phone(String phone) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void Nickname(String nickname) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void MemberSince(String memberSince) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void CreatedQuinielas(ArrayList<Quiniela> createdQuinielas) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void Notifications() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void ActiveQuinielas(ArrayList<Quiniela> activeQuinielas) {
+		// TODO Auto-generated method stub
 		
 	}
 }

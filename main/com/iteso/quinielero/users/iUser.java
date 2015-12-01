@@ -2,41 +2,43 @@ package com.iteso.quinielero.users;
 
 import java.util.ArrayList;
 
+import com.iteso.quinielero.quiniela.iQuiniela;
 import com.iteso.quinielero.quiniela.impl.Quiniela;
 
 public interface iUser {
 	public String getId();
-	public void setId(String id);
+	public void Id(String id);
 	public String getUsername();
-	public void setUsername(String username);
+	public void Username(String username);
 	public String getFirstName();
-	public void setFirstName(String firstName);
+	public void FirstName(String firstName);
 	public String getLastName();
-	public void setLastName(String lastName);
+	public void LastName(String lastName);
 	public String getStreet1();
-	public void setStreet1(String street1);
+	public void Street1(String street1);
 	public String getStreet2();
-	public void setStreet2(String street2);
+	public void Street2(String street2);
 	public String getCity();
-	public void setCity(String city);
+	public void City(String city);
 	public String getState();
-	public void setState(String state);
+	public void State(String state);
 	public String getCountry();
-	public void setCountry(String country);
+	public void Country(String country);
 	public String getZip();
-	public void setZip(String zip);
+	public void Zip(String zip);
 	public String getPhone();
-	public void setPhone(String phone);
+	public void Phone(String phone);
 	public String getNickname();
-	public void setNickname(String nickname);
+	public void Nickname(String nickname);
 	public String getMemberSince();
-	public void setMemberSince(String memberSince);
-	public ArrayList<Quiniela> getCreatedQuinielas();
-	public void setCreatedQuinielas(ArrayList<Quiniela> createdQuinielas);
-	public ArrayList<Quiniela> getActiveQuinielas();
+	public void MemberSince(String memberSince);
+	public ArrayList<iQuiniela> getCreatedQuinielas();
+	public void CreatedQuinielas(ArrayList<Quiniela> createdQuinielas);
+	public ArrayList<iQuiniela> getActiveQuinielas();
 	public ArrayList<iNotification> getNotifications();
-	public void setNotifications();
-	public void setActiveQuinielas(ArrayList<Quiniela> activeQuinielas);
+	public void Notifications();
+	public void ActiveQuinielas(ArrayList<Quiniela> activeQuinielas);
 	public void update(String notification, String notificationTitle);
+	public void setNotifications();
 	
 }

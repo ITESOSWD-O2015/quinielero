@@ -26,7 +26,7 @@ public class Quiniela implements iQuiniela{
 	private List<Team> teams;
 	private ArrayList<iUser> pending_people = new ArrayList<iUser>();
 	private ArrayList<iUser> participants = new ArrayList<iUser>();
-
+	
 	public Quiniela(String name) {
 		teams = new ArrayList<Team>();
 		setName(name);
@@ -105,7 +105,7 @@ public class Quiniela implements iQuiniela{
 			this.minimum_participants = minimum_participants;
 	}
 
-	private void setName(String name) {
+	public void setName(String name) {
 		if (name == "" || name == null)
 			this.name = "ERROR";
 		else
