@@ -139,6 +139,7 @@ public class Profile implements iUser {
 	public void update(String notification, String notificationTitle) {
 		try {
 			DatabaseConnection.updateStatement("INSERT INTO Notification (idUser, title, description) VALUES ('" + getId() + "', '" + notificationTitle + "', '" + notification + "')");
+			System.out.print("Yes");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
