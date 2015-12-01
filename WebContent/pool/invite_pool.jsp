@@ -32,7 +32,7 @@ if (cookies != null) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Quinielero | Invite people</title>
-<link href="sources/style.css" rel="stylesheet" type="text/css">
+<link href="../sources/style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" language="JavaScript">
 	function InviteParticipant() {
 		var participante = document.getElementById("participante");
@@ -53,7 +53,7 @@ if (cookies != null) {
 		</h1>
 	</div>
 	
-	<form action="" method="post">
+	<form action="../InvitePeople" method="post" onsubmit="InviteParticipant()">
 		<table align="center">
 
 			<tr>
@@ -83,8 +83,8 @@ if (cookies != null) {
 						Pool</button>
 				</td>
 				<td>
-					<button type="button" id="invite" value="Invite"
-						height:30px;  width:80px" onclick="InviteParticipant()">Invite</button>
+					<input type="submit" id="invite" value="Invite"
+						height:30px;  width:80px">
 				</td>
 
 			</tr>

@@ -51,7 +51,7 @@ public class InvitePeople extends HttpServlet {
 		int iduser = 0;
 		try {
 			ResultSet rs = DatabaseConnection.queryStatement(queryEmailUser);
-			rs.next();
+			
 			iduser = rs.getInt("iduser");
 		}catch(SQLException e){
 			// TODO Auto-generated catch block
@@ -65,7 +65,7 @@ public class InvitePeople extends HttpServlet {
 		
 		try{
 			dbValuesToInsert = "'" + idQuinielaToInvite + "','" + iduser + "'";
-			dbInsertion = "INSERT INTO `UserQuiniela`(`idUserQuiniela`, `idQuiniela`, `idUser`) VALUES (" + dbValuesToInsert + ")";
+			dbInsertion = "INSERT INTO `UserQuiniela`(`idQuiniela`, `idUser`) VALUES (" + dbValuesToInsert + ")";
 			DatabaseConnection.updateStatement(dbInsertion);
 		}catch(SQLException e){
 			// TODO Auto-generated catch block
