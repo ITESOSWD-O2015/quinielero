@@ -71,8 +71,8 @@
 				loginUser = new Profile(idUser);
 			}
 		}
-		Quiniela quiniela;
 	%>
+
 
 	<jsp:include page="../sources/head.jsp" />
 
@@ -88,13 +88,14 @@
 				<th>Start Date</th>
 			</tr>
 			<%
-				for (iQuiniela actualQuiniela : loginUser.getCreatedQuinielas()) {
-					String toHTML = "<tr><td>" + actualQuiniela.getName() + "</td>";
-					toHTML = toHTML + "<td>" + actualQuiniela.getPoolMode() + "</td>";
-					toHTML = toHTML + "<td>" + actualQuiniela.getStart_date() + "</td></tr>";
+			loginUser.setCreatedQuinielas();
+				for (iQuiniela quiniela : loginUser.getCreatedQuinielas()) {
+					String toHTML = "<tr><td>" + quiniela.getName() + "</td>";
+					toHTML = toHTML + "<td>" + quiniela.getPoolMode() + "</td>";
+					toHTML = toHTML + "<td>" + quiniela.getStart_date() + "</td></tr>";
 					out.println(toHTML);
 				}
-			%> 
+			%>
 		</table>
 	</div>
 
@@ -108,6 +109,7 @@
 				<th>Start Date</th>
 			</tr>
 			<%
+			loginUser.setActiveQuinielas();
 				for (iQuiniela actualQuiniela : loginUser.getActiveQuinielas()) {
 					String toHTML = "<tr><td>" + actualQuiniela.getName() + "</td>";
 					toHTML = toHTML + "<td>" + actualQuiniela.getPoolMode() + "</td>";

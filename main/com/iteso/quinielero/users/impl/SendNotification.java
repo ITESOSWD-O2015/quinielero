@@ -35,8 +35,8 @@ public class SendNotification extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String   name = request.getParameter("notificationsid");
-		int    idUser = Integer.parseInt(request.getParameter("idUser"));
+		//String   name = request.getParameter("notificationsid");
+		//int    idUser = Integer.parseInt(request.getParameter("idUser"));
 		
 		
 		

@@ -27,11 +27,11 @@ public class Profile implements iUser {
 	ArrayList<iQuiniela> createdQuinielas = new ArrayList<iQuiniela>();
 	ArrayList<iQuiniela> activeQuinielas = new ArrayList<iQuiniela>();
 	ArrayList<iNotification> notifications = new ArrayList<iNotification>();
-	
+
 	public Profile(String id) throws SQLException {
 		ResultSet resultSet = null;
 		resultSet = DatabaseConnection.queryStatement("SELECT * FROM User WHERE idUser = '" + id + "'");
-		
+
 		setId(resultSet.getString("idUser"));
 		setFirstName(resultSet.getString("firstName"));
 		setLastName(resultSet.getString("lastName"));
@@ -130,16 +130,18 @@ public class Profile implements iUser {
 	public void setCreatedQuinielas() {
 		iQuiniela quiniela;
 		try {
-			ResultSet resultSet = DatabaseConnection.queryStatement("SELECT * FROM Quiniela, QuinielaType"
-																+ "WHERE Quiniela.idCreator = '" + getId() +"' "
-																	+ "AND QuinielaType.idQuinielaType = Quiniela.idQuinielaType");
-			do {
-				quiniela = new Quiniela(resultSet.getString("name"));
-				
-				quiniela.setPoolMode(resultSet.getString("name"));  
-				quiniela.setStart_date(resultSet.getString("beginDate")); 
-				createdQuinielas.add(quiniela);
-			} while (resultSet.next());
+			ResultSet resultSet = DatabaseConnection.queryStatement("SELECT Quiniela.name, QuinielaType.nameTypo, Quiniela.beginDate FROM Quiniela, QuinielaType "
+					+ "WHERE Quiniela.idCreator = '" + getId() +"' "
+					+ "AND QuinielaType.idQuinielaType = Quiniela.idQuinielaType");
+
+			if(resultSet != null)
+				do {
+					quiniela = new Quiniela(resultSet.getString("Quiniela.name"));
+
+					quiniela.setPoolMode(resultSet.getString("QuinielaType.nameTypo"));  
+					quiniela.setStart_date(resultSet.getString("Quiniela.beginDate")); 
+					createdQuinielas.add(quiniela);
+				} while (resultSet.next());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -150,17 +152,18 @@ public class Profile implements iUser {
 	public void setActiveQuinielas() {
 		iQuiniela quiniela;
 		try {
-			ResultSet resultSet = DatabaseConnection.queryStatement("SELECT * FROM Quiniela, UserQuiniela, QuinielaType, League"
-																+ "WHERE Quiniela.idquiniela = UserQuiniela.idQuiniela "
-																	+ "AND UserQuiniela.idUser = '" + getId() +"' "
-																	+ "AND QuinielaType.idQuinielaType = Quiniela.idQuinielaType");
-			do {
-				quiniela = new Quiniela(resultSet.getString("Quiniela.name"));
-				
-				quiniela.setPoolMode(resultSet.getString("QuinielaType.name"));  
-				quiniela.setStart_date(resultSet.getString("Quiniela.beginDate")); 
-				activeQuinielas.add((Quiniela) quiniela);
-			} while (resultSet.next());
+			ResultSet resultSet = DatabaseConnection.queryStatement("SELECT Quiniela.name, QuinielaType.nameTypo, Quiniela.beginDate FROM Quiniela, UserQuiniela, QuinielaType "
+					+ "WHERE Quiniela.idQuiniela = UserQuiniela.idQuiniela "
+					+ "AND UserQuiniela.idUser = '" + getId() +"' "
+					+ "AND QuinielaType.idQuinielaType = Quiniela.idQuinielaType");
+			if(resultSet != null)
+				do {
+					quiniela = new Quiniela(resultSet.getString(1));
+
+					quiniela.setPoolMode(resultSet.getString(2));  
+					quiniela.setStart_date(resultSet.getString(3)); 
+					activeQuinielas.add((Quiniela) quiniela);
+				} while (resultSet.next());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -183,97 +186,99 @@ public class Profile implements iUser {
 		iNotification notification;
 		try {
 			ResultSet resultSet = DatabaseConnection.queryStatement("SELECT * FROM Notification WHERE idUser = '" + getId() + "'");
-			do {
-				notification = new QuinielaNotification();
-				notification.setIdUser(resultSet.getString("iduser"));
-				notification.setTitle(resultSet.getString("title"));
-				notification.setDescription(resultSet.getString("description"));
-				
-				notifications.add(notification);
-			} while (resultSet.next());
+
+			if(resultSet != null)
+				do {
+					notification = new QuinielaNotification();
+					notification.setIdUser(resultSet.getString("iduser"));
+					notification.setTitle(resultSet.getString("title"));
+					notification.setDescription(resultSet.getString("description"));
+
+					notifications.add(notification);
+				} while (resultSet.next());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 	@Override
 	public void Id(String id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void Username(String username) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void FirstName(String firstName) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void LastName(String lastName) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void Street1(String street1) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void Street2(String street2) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void City(String city) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void State(String state) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void Country(String country) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void Zip(String zip) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void Phone(String phone) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void Nickname(String nickname) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void MemberSince(String memberSince) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void CreatedQuinielas(ArrayList<Quiniela> createdQuinielas) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void Notifications() {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void ActiveQuinielas(ArrayList<Quiniela> activeQuinielas) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
