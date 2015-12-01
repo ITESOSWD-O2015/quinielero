@@ -58,8 +58,8 @@ public class CreatePoolServlet extends HttpServlet {
 		String   mode = request.getParameter("select_pool_mode_button");
 		
 		//Get the ID of the league
-		String queryMode   =   "SELECT idQuinielaType FROM QuinielaType WHERE name='" + mode +"'";
-		String queryLeague = "SELECT idLeague       FROM League       WHERE name='" + league +"'";
+		String queryMode   =   "SELECT idQuinielaType FROM QuinielaType WHERE nameTypo = '" + mode + "'";
+		String queryLeague = "SELECT idLeague FROM League WHERE name = '" + league + "'";
 		int idMode   = -1;
 		int idLeague = -1;
 		try{
