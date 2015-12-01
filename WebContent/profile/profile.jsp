@@ -69,7 +69,7 @@ if (cookies != null) {
 <div id="profile">	
 <table width="100%" cellspacing="20" align="center">
 	<tr>
-		<td width="50%" align="center"><img style="high:500px; width:500px" src="http://www.goodnik.net/assets/default-7e3f08530293551aa4ff5fbd7c0995c5.png" class="image"></td>		
+		<td width="50%" align="center"><img style="high:500px; width:500px" src="http://www.mientrastantoenmexico.mx/wp-content/uploads/2015/09/carmen-salinas-aza-1756571.jpg" class="image"></td>		
 		<td align="center" valign="top">
 			<h3>Profile</h3>
 			<table width="80%">
