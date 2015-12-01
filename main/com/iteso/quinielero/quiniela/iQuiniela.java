@@ -7,4 +7,9 @@ public interface iQuiniela {
 	public void removeUser(iUser user);
 	public void notifyUsers(String notification, String notificationTitle);
 	public int getLeagueId();
+	public void setPoolMode(String string);
+	public void setStart_date(String string);
+	public String getName();
+	public String getPoolMode();
+	public String getStart_date();
 }

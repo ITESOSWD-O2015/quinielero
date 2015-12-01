@@ -31,16 +31,19 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
 ></script>
+<link href="../sources/style.css" rel="stylesheet" type="text/css">
 <title>Request to your pool</title>
 </head>
 <body>
+
+<jsp:include page="../sources/head.jsp" />
 	<%@ page import="com.iteso.quinielero.quiniela.impl.Quiniela"%>
 	<%@ page import="com.iteso.quinielero.users.impl.Profile"%>
 	<%@ page import="java.util.List"%>
 	<%@ page import="java.util.ArrayList"%>
 	<%@ page import="java.util.List"%>
 	<%
-		Quiniela myQuinielaCreated = new Quiniela("Champinions League final stage");
+		/*Quiniela myQuinielaCreated = new Quiniela("Champinions League final stage");
 		myQuinielaCreated.setPoolMode("League mode");
 		myQuinielaCreated.setLeagueName("Champinions League");
 		myQuinielaCreated.setStart_date("16/02/16");
@@ -55,12 +58,12 @@
 		myQuinielaCreated.addPending_people(profile2);
 		myQuinielaCreated.addPending_people(profile3);
 		myQuinielaCreated.addPending_people(profile4);
-		myQuinielaCreated.addPending_people(profile5);
+		myQuinielaCreated.addPending_people(profile5);*/
 	%>
 	<h1>
 		Request for
 		<%
-		out.println(myQuinielaCreated.getName());
+		//out.println(myQuinielaCreated.getName());
 	%>
 	</h1>
 	<div class="table-responsive">
@@ -72,7 +75,7 @@
 				<th>Accept</th>
 			</tr>
 			<%
-				for (Profile actualProfile : myQuinielaCreated.getPending_people()) {
+				/*for (Profile actualProfile : myQuinielaCreated.getPending_people()) {
 					int i = 1;
 					String toHTML = "<tr><td>" + actualProfile.getUsername() + "</td>";
 					toHTML = toHTML + "<td>" + actualProfile.getFirstName() + "</td>";
@@ -80,14 +83,14 @@
 					toHTML = toHTML + "<td> <input type=\"checkbox\" id=\"option" + i + "\"</td></tr>";
 					out.println(String.valueOf(toHTML));
 					i++;
-				}
+				}*/
 			%>
 		</table>
 		<script>
 			function doneFunction(){
 				<%
-					myQuinielaCreated.addParticipanFromPending(profile1);
-					myQuinielaCreated.addParticipanFromPending(profile4);
+					/*myQuinielaCreated.addParticipanFromPending(profile1);
+					myQuinielaCreated.addParticipanFromPending(profile4);*/
 				%>
 			}
 		</script>
