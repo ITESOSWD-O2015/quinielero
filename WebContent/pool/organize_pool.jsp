@@ -37,16 +37,40 @@ if (cookies != null) {
 <script>
 function validateDatos(){	
 	
-	var maximumS = document.forms["make_pool_form"]["maximum_participants"].value;
-	var minimumS = parseInt(document.forms["make_pool_form"]["minimum_participants"].value);
-	var name    = document.forms["make_pool_form"]["pool_name"].value;
+	var maximumS  = document.forms["make_pool_form"]["maximum_participants"].value;
+	var minimumS  = parseInt(document.forms["make_pool_form"]["minimum_participants"].value);
+	var name      = document.forms["make_pool_form"]["pool_name"].value;
+	var userDate  = document.forms["make_pool_form"]["start_date"].value;
+	var splitDate = userDate.split("-"); 
+	
+	
+	
 	
 	
 	var maximum = parseInt(maximumS);
 	var minimum = parseInt(minimumS);	
 	var nameAux = name.replace(" ","");
 	
-	alert("LEYENDO DATOS DE QUINIELA");
+	
+	var userdd = splitDate[2];
+	var usermm = splitDate[1];
+	var useryy = splitDate[0]
+	
+	
+	var todaydd = today.getDate();
+	var todaymm = today.getMonth()+1; //January is 0!
+	var todayyy = today.getFullYear();
+
+	if(dd<10) {
+	    dd='0'+dd
+	} 
+
+	if(mm<10) {
+	    mm='0'+mm
+	} 
+
+	
+	//document.write("Today date: " + todaydd + "-" + todaymm + "-" + todayyy)
 	
 	if(minimum > maximum){
 		alert("Minimum can't be higher than maximum");
@@ -54,8 +78,13 @@ function validateDatos(){
 	}else if(nameAux == ""){
 		alert("Your pool's name must have at least one character");
 		return false;
-	}else
+	}else if(useryy < todayyy){
+		alert("You can't choose a date that has already passed");
+		return false;
+	}else{
+		alert("Your quiniela has successfully been created");
 		return true;
+	}
 	
 	
 	/*

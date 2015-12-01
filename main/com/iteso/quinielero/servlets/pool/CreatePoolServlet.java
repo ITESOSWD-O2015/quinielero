@@ -64,10 +64,8 @@ public class CreatePoolServlet extends HttpServlet {
 		int idLeague = -1;
 		try{
 			ResultSet rs = DatabaseConnection.queryStatement(queryLeague);
-			rs.next();
 			idLeague = rs.getInt("idLeague");
 			rs = DatabaseConnection.queryStatement(queryMode);
-			rs.next();
 			idMode = rs.getInt("idQuinielaType");		
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -91,7 +89,7 @@ public class CreatePoolServlet extends HttpServlet {
 		try {	
 			
 			dbValues = "'" + quiniela.getName() + "','" + quiniela.getLeagueId() + "','" + quiniela.getCreatorId() + "','" + quiniela.getMinimum_participants()
-			+ "','" + quiniela.getMaximum_participants() + "','2015-12-21','" + quiniela.getPools_price() + "','" + quiniela.getPoolModeId() + "'";
+			+ "','" + quiniela.getMaximum_participants() + "','" + quiniela.getStart_date() +"','" + quiniela.getPools_price() + "','" + quiniela.getPoolModeId() + "'";
 			
 			dbInsertion = "INSERT INTO Quiniela (name, idLeague, idCreator, minParticipants, maxParticipants, beginDate, price, idQuinielaType) " + "VALUES (" + dbValues + ")";
 			
