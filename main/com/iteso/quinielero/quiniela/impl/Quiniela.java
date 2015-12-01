@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.iteso.quinielero.mysql.DatabaseConnection;
-import com.iteso.quinielero.quiniela.Team;
 import com.iteso.quinielero.quiniela.iQuiniela;
+import com.iteso.quinielero.team.Team;
 import com.iteso.quinielero.users.iUser;
 import com.iteso.quinielero.users.impl.Profile;
 

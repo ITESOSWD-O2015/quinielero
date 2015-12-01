@@ -9,8 +9,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.iteso.quinielero.quiniela.Team;
 import com.iteso.quinielero.quiniela.impl.Quiniela;
+import com.iteso.quinielero.team.Team;
 
 public class AddQuinielaTeamTest {
 	List<Team> existingTeams = new ArrayList<Team>();

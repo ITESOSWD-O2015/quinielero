@@ -44,7 +44,7 @@
 
 	<%@ page import="com.iteso.quinielero.quiniela.iQuiniela"%>
 	<%@ page import="com.iteso.quinielero.quiniela.impl.Quiniela"%>
-	<%@ page import="com.iteso.quinielero.quiniela.Team"%>
+	<%@ page import="com.iteso.quinielero.team.Team"%>
 	<%@ page import="java.util.List"%>
 	<%@ page import="java.util.ArrayList"%>
 	<%@ page import="java.util.List"%>

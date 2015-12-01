@@ -1,8 +1,10 @@
-package com.iteso.quinielero.quiniela;
+package com.iteso.quinielero.team;
 
-public class Team {
+public abstract class Team {
 	private String nombre = "";
 	private int teamID;
+	public String players;
+	public abstract String getPlayers();
 
 	public Team(String nombre, int teamID) {
 		this.nombre = nombre;
@@ -23,10 +25,5 @@ public class Team {
 
 	public void setTeamID(int teamID) {
 		this.teamID = teamID;
-	}
-
-	@Override
-	public String toString() {
-		return nombre;
 	}
 }
