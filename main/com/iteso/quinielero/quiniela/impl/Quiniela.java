@@ -26,10 +26,14 @@ public class Quiniela implements iQuiniela{
 	private List<Team> teams;
 	private ArrayList<iUser> pending_people = new ArrayList<iUser>();
 	private ArrayList<iUser> participants = new ArrayList<iUser>();
-
+	
 	public Quiniela(String name) {
 		teams = new ArrayList<Team>();
 		setName(name);
+	}
+
+	public Quiniela(int leagueid) {
+		this.leagueId = leagueid;
 	}
 
 	public String getLeagueName() {
@@ -105,7 +109,7 @@ public class Quiniela implements iQuiniela{
 			this.minimum_participants = minimum_participants;
 	}
 
-	private void setName(String name) {
+	public void setName(String name) {
 		if (name == "" || name == null)
 			this.name = "ERROR";
 		else
@@ -205,6 +209,7 @@ public class Quiniela implements iQuiniela{
 	@Override
 	public void notifyUsers(String notification, String notificationTitle) {
 		for (iUser user : getParticipants()) {
+			System.out.println(user.getId() + notification + notificationTitle);
 			user.update(notification, notificationTitle);
 		}
 	}
@@ -215,9 +220,10 @@ public class Quiniela implements iQuiniela{
 
 	public void setParticipants() {
 		try {
-			ResultSet resultSet = DatabaseConnection.queryStatement("SELECT idUser FROM idUserQuiniela WHERE idQuiniela = '" + this.getLeagueId() + "'");
+			ResultSet resultSet = DatabaseConnection.queryStatement("SELECT idUser FROM UserQuiniela WHERE idQuiniela = '" + this.getLeagueId() + "'");
 			while(resultSet.next()) {
 				getParticipants().add(new Profile(resultSet.getString("idUser")));
+				System.out.println(getParticipants().size());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

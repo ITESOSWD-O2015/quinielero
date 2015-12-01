@@ -8,7 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.iteso.quinielero.mysql.DatabaseConnection;
+import com.iteso.quinielero.quiniela.impl.Quiniela;
 
 @WebServlet("/DeletePool")
 public class DeletePool extends HttpServlet {
@@ -35,17 +37,24 @@ public class DeletePool extends HttpServlet {
 		String QuinielaNameToDelete =  "SELECT name FROM Quiniela WHERE idQuiniela='" + idQuinielaByUser +"'";
 		
 		
+		
+		Quiniela quiniela = new Quiniela(idQuinielaByUser);
+		quiniela.setParticipants();
+		quiniela.notifyUsers("Quiniela deleted", "Quiniela deleted");
+		
+		
 		String dbInsertion = "";
 		try{
 			dbInsertion = "DELETE FROM `Quiniela` WHERE idQuiniela = '" + idQuinielaByUser +"'";
 			DatabaseConnection.updateStatement(dbInsertion);
+			response.getWriter().println("Your new pool was succesfully saved!");
+			response.getWriter().println("Deleted Pool: " + QuinielaNameToDelete);
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		response.getWriter().println("Your new pool was succesfully saved!");
-		response.getWriter().println("Deleted Pool: " + QuinielaNameToDelete);
+		
 	}
 
 }

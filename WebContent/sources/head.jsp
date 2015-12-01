@@ -8,7 +8,7 @@
 		<li><a href='#'>Home</a></li>
 		<li><a href='#'>Pools</a>
 			<ul class="pools_sub_menu">
-				<li><a href='#'>View Pools</a></li>
+				<li><a href='http://localhost:8080/Quinielero/pool/view_my_pools.jsp'>View Pools</a></li>
 				<li><a href='#'>View Stats</a></li>
 				<li><a href="http://localhost:8080/Quinielero/pool/organize_pool.jsp">Organize Pool</a></li>
 				<li><a href='#'>Edit Pool</a></li>	
@@ -45,7 +45,7 @@
 		<li><a href='#'>Home</a></li>
 		<li><a href='#'>Pools</a>
 			<ul class="pools_sub_menu">
-				<li><a href='#'>View Pools</a></li>
+				<li><a href='pool/view_my_pools.jsp'>View Pools</a></li>
 				<li><a href='#'>View Stats</a></li>
 				<li><a href="pool/organize_pool.jsp">Organize Pool</a></li>
 				<li><a href='#'>Edit Pool</a></li>				
